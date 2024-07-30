@@ -1,49 +1,39 @@
-To help prepare content for AI Tour, please use this template repository for organizing your sessions and preparing the content for future presentors.
-1. Update this readme with the todo's listed below
-2. The src folder has been created for all development tasks when creating this session
-3. The Lab folder is in-person and async participation with content, please update this folder with instructions for participants to follow along.
-4. The Presenter Notes folder is the train the trainer section. Here add any slide decks, demo videos, and other content as needed. This page has a rough layout to provide ideas but can be edited as needed.
-5. If you are taking advantage of the static front end site, edit the content in the _config.yml file as needed (specifically the title and description)
+# From Concept to Creation with Azure AI Studio
 
+This repo hosts the material for the Microsoft AI Tour session *From Concept to Creation in Azure AI Studio*.
 
-# [TODO: Insert Session Title]
+## Session Description
 
-This repo is intended as a template for Microsoft AI Tour repositories
-
-## Session Desciption
-
-TODO: Add short description of the session. Please note this description should be at a technical level that anyone from decision makers to conference attendees can understand.
+When developing a generative AI application, selecting the right model is an essential first step. However, the true differentiator lies in how you utilize your input. In this session, you will discover how to maximize the potential of your model through advanced prompt engineering techniques, integrating your model with various data sources, and enabling it to perform actionable tasks. Additionally, you will learn how to leverage Azure AI Studio as the ideal platform to start building custom AI solutions.
 
 ## Learning Outcomes
-TODO: Add a list of what you hope the attendee will take away from this session. This can be skills, technology, appreciation, etc.
+1. Make the best out of the powerful models offered by Azure AI Studio [Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview?WT.mc_id=academic-145965-cacaste) by leveraging Prompt Engineering techniques and best practices. 
+2. Discover how to build, test and evaluate custom and multimodal AI solutions safely in [Azure AI Studio](https://azure.microsoft.com/products/ai-studio/?WT.mc_id=academic-145965-cacaste), thanks to built-in data connectors, AI orchestration toolchain and tracing facilities.
 
 ## Technology Used
-TODO: Add a list of any technology or software used.
+1. Azure AI Studio
+2. [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/overview?WT.mc_id=academic-145965-cacaste)
+3. [Prompt Flow](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow?WT.mc_id=academic-145965-cacaste)
 
 ## Additional Resources and Continued Learning
-TODO: If you would like to link the user to further learning, please enter that here.
 
 | Resources          | Links                             | Description        |
 |:-------------------|:----------------------------------|:-------------------|
-| Future Learning 1  | [Link 1](https://www.google.com/) | Learn more about X |
-| Future Learning 2  | [Link 2](https://www.google.com/) | Learn more about Y |
+| OSS curriculum| [Generative AI for Beginners](https://aka.ms/genai-beginners?WT.mc_id=academic-145965-cacaste) | Deep dive into the world of Generative AI with an 18 lessons-curriculum |
+| Microsoft Learn Training | [Create custom copilots with Azure AI Studio](https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/?WT.mc_id=academic-145965-cacaste) | Learn more about Azure AI Studio amd Prompt Flow |
 
 ## Content Owners
-TODO: Add yourself as a content owner
-1. Change the src in the image tag to {your github url}.png
-2. Change INSERT NAME HERE to your name
-3. Change the github url in the final href to your url.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 
 <table>
 <tr>
-    <td align="center"><a href="http://learnanalytics.microsoft.com">
-        <img src="https://github.com/cole-g-johnson.png" width="100px;" alt="Chris Testa-O'Neill
+    <td align="center"><a href="https://github.com/carlotta94c">
+        <img src="https://github.com/carlotta94c.png" width="100px;" alt="Carlotta Castelluccio
 "/><br />
-        <sub><b>INSERT NAME HERE
+        <sub><b>Carlotta Castelluccio
 </b></sub></a><br />
-            <a href="https://github.com/cole-g-johnson" title="talk">📢</a> 
+            <a href="https://github.com/carlotta94c" title="talk">📢</a> 
     </td>
 </tr></table>
 
