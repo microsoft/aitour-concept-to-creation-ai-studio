@@ -12,4 +12,4 @@ There's 4 demos:
 ## Scenario
 
 All the demos are based on the following scenario.
-You are a developer at Contoso Outdoor Company, a leading e-commerce company that sells outdoor gear and equipment. Your team is working on a new website design and you have been tasked with generating text content, images, and code snippets for the website. You have heard about the power of generative AI models and want to explore how you can leverage them to generate content for the website.
+You are a developer at Contoso Outdoor Company, a leading e-commerce company that sells outdoor gear and equipment. Your team is working on a new website design and you have been tasked with generating text content, and code snippets for the website. You have heard about the power of generative AI models and want to explore how you can leverage them to generate content for the website.

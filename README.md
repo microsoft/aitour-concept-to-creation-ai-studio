@@ -21,6 +21,7 @@ When developing a generative AI application, selecting the right model is an ess
 |:-------------------|:----------------------------------|:-------------------|
 | OSS curriculum| [Generative AI for Beginners](https://aka.ms/genai-beginners?WT.mc_id=academic-145965-cacaste) | Deep dive into the world of Generative AI with an 18 lessons-curriculum |
 | Microsoft Learn Training | [Create custom copilots with Azure AI Studio](https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/?WT.mc_id=academic-145965-cacaste) | Learn more about Azure AI Studio amd Prompt Flow |
+| Workshop GitHub repo | [Interact with LLMs](https://github.com/microsoft/Workshop-Interact-with-LLMs/tree/main) | Master prompt engineering skills and learn about function calling with the workshop repo |
 
 ## Content Owners
 
