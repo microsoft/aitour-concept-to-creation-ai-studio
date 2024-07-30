@@ -93,3 +93,11 @@ The outcome should provide a basic layout for the landing page of Contoso Outdoo
 
 > [!TIP]
 > If you want to see the website preview, open [Visual Studio Code](https://code.visualstudio.com/Download) and copy paste the model answer into a new html file. To see the preview inside the editor, make sure you have the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension installed.
+
+## Prompt Catalog
+
+For this demo you used some prompts built from scratch. However, Azure AI Studio provides a [Prompt Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-catalog?WT.mc_id=academic-140829-cacaste) with a collection of pre-built prompts that you can use to perform several task. You can access the Prompt Catalog by clicking on the *Prompt Catalog* tab in the Azure AI Studio Hub.
+
+Try to open one of the sample prompts. You'll see that each prompts has several components, such as system message, variables, and examples. You can use these prompts as a starting point to build your own and even test them in the Playground.
+
+![Prompt Catalog](./media/prompt_catalog.png)

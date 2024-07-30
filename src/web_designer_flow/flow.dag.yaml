@@ -1,0 +1,103 @@
+id: web_designer_flow
+name: Web Designer Flow
+inputs:
+  question:
+    type: string
+    is_chat_input: false
+outputs:
+  website copy:
+    type: string
+    reference: ${create_website_copy.output}
+  context:
+    type: string
+    reference: ${lookup.output}
+nodes:
+- name: lookup
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.common_index_lookup.search
+  inputs:
+    mlindex_content: >
+      embeddings:
+        api_base: https://<your-aoai-service-name>.openai.azure.com
+        api_type: azure
+        api_version: 2023-07-01-preview
+        batch_size: '16'
+        connection:
+          id: 
+            <your-aoai-connection-id>
+        connection_type: workspace_connection
+        deployment: text-embedding-ada-002
+        dimension: 1536
+        file_format_version: '2'
+        kind: open_ai
+        model: text-embedding-ada-002
+        schema_version: '2'
+      index:
+        api_version: 2023-07-01-preview
+        connection:
+          id: 
+            <your-openai-connection-id>
+        connection_type: workspace_connection
+        endpoint: https://<your-search-service-name>.search.windows.net/
+        engine: azure-sdk
+        field_mapping:
+          content: content
+          embedding: contentVector
+          filename: filepath
+          metadata: meta_json_string
+          title: title
+          url: url
+        index: <your-index-name>
+        kind: acs
+        semantic_configuration_name: azureml-default
+    queries: ${inputs.question}
+    query_type: Hybrid (vector + keyword)
+    top_k: 3
+  use_variants: false
+- name: prompt
+  use_variants: true
+- name: create_website_copy
+  type: llm
+  source:
+    type: code
+    path: create_website_copy.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 1
+    top_p: 1
+    response_format:
+      type: text
+    prompt_text: ${prompt.output}
+  provider: AzureOpenAI
+  connection: <your-aoai-connection>
+  api: chat
+  module: promptflow.tools.aoai
+  use_variants: false
+node_variants:
+  prompt:
+    default_variant_id: variant_0
+    variants:
+      variant_0:
+        node:
+          name: prompt
+          type: prompt
+          source:
+            type: code
+            path: prompt.jinja2
+          inputs:
+            contexts: ${lookup.output}
+            question: ${inputs.question}
+      variant_1:
+        node:
+          name: prompt
+          type: prompt
+          source:
+            type: code
+            path: prompt__variant_1.jinja2
+          inputs:
+            contexts: ${lookup.output}
+            question: ${inputs.question}
+environment:
+  python_requirements_txt: requirements.txt
