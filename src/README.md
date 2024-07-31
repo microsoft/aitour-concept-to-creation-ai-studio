@@ -9,7 +9,20 @@ There's 4 demos:
 - **Demo 3 - Add your own data with Prompt Flow**: this demo is intended to showcase how to build your first DAG flow in Prompt Flow and connect it to your business data, leveraging *retrieval Augmented Generation*(RAG).
 - **Demo 4 - Evaluate your prototype with Prompt Flow**: once your first flow is ready and connected to your data, go through this demo to evaluate the performance of your solution.
 
+## Folder structure
+
+This folder contains the following files and folders:
+
+- `README.md`: this file.
+- `demo1-get-started.md`: step-by-step instructions to run the demo 1.
+- `demo2-prompt-engineering.md`: step-by-step instructions to run the demo 2.
+- `demo3-add-your-own-data.md`: step-by-step instructions to run the demo 3.
+- `demo4-evaluate-your-prototype.md`: step-by-step instructions to run the demo 4.
+- `media`: folder containing images used in the markdown files.
+- `data`: folder containing the sample datasets used in demos 3 and 4.
+- `web_designer_flow`: the folder containing the flow configuration files for demo 3. 
+
 ## Scenario
 
 All the demos are based on the following scenario.
-You are a developer at Contoso Outdoor Company, a leading e-commerce company that sells outdoor gear and equipment. Your team is working on a new website design and you have been tasked with generating text content, and code snippets for the website. You have heard about the power of generative AI models and want to explore how you can leverage them to generate content for the website.
+You are a developer at **Contoso Outdoor Company**, a leading *e-commerce company that sells outdoor gear and equipment*. Your team is working on a new website design and you have been tasked with generating text content, and code snippets for the website. You have heard about the power of generative AI models and want to explore how you can leverage them to generate content for the website.
