@@ -10,7 +10,7 @@ outputs:
     reference: ${create_website_copy.output}
   context:
     type: string
-    reference: ${lookup.output}
+    reference: ${prompt.output}
 nodes:
 - name: lookup
   type: python

@@ -52,7 +52,7 @@ The flow includes:
 1. A **Lookup** tool that retrieves the product information from the Azure AI Search index, starting from the user query, to provide context to the model.
 1. A **Prompt** node that combines a system message with the retrieved context and the user question provided in input. 
 1. An **LLM** tool that generates a response based on the prompt and the context.
-1. An **Output** node that includes the model response and the product search result.
+1. An **Output** node that includes the model response and the overall context in input to the model - that will be used later in the evaluation step.
 
 First thing first, you need to click on the **Start compute session** button in the top right corner. This will start the compute session and allow you to apply edits to the flow.
 ![Start compute session](./media/start_compute_session_button.png)
