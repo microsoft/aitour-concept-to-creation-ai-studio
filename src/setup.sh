@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # Variables
-resourceGroupName="aitour-concept-to-creation-ai-studio"
+resourceGroupName="aitourbrk441"
 location="eastus2"  # Change to your preferred region
-openAIInstanceName="aitour-concept-to-creation-ai-studio"
+openAIInstanceName="aitourbrk441"
 modelDeploymentName="gpt-35-turbo-16k"
 modelName="gpt-35-turbo-16k"
+modelFormat="OpenAI"
+modelVersion="0613"
 modelCapacity="16k"
 workspaceName="aitour-aml-workspace"
 promptFlowFile="aitour-concept-to-creation-ai-studio\src\web_designer_flow\flow.dag.yaml" 
@@ -21,16 +23,23 @@ az cognitiveservices account create \
     --sku S0 \
     --location $location
 
+    az cognitiveservices account show \
+    --name $openAIInstanceName \
+    --resource-group $resourceGroupName 
+
 # Deploy the model to the Azure OpenAI instance
-az openai deployment create \
+
+az cognitiveservices account deployment create \
     --resource-group $resourceGroupName \
-    --name $modelDeploymentName \
-    --model $modelName \
-    --capacity $modelCapacity \
-    --instance $openAIInstanceName
+    --name $openAIInstanceName \
+    --model-name $modelName \
+    --model-format $modelFormat \
+    --model-version $modelVersion
+
+
 
 # Output details of the deployment
-az openai deployment show --resource-group $resourceGroupName --name $modelDeploymentName --instance $openAIInstanceName
+az cognitiveservices account deployment show --resource-group $resourceGroupName --name $modelDeploymentName --instance $openAIInstanceName
 
 # Create an Azure Machine Learning workspace
 az ml workspace create --name $workspaceName --resource-group $resourceGroupName --location $location
