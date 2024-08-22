@@ -1,8 +1,3 @@
-## TODO:
-Update this page as you see fit to properly train a future presenter of your content. A past train the trainer repo is included below for your assitance, but feel free to make any changes.
-
-Note: Please make sure to update any links within the markdown so they point to the correct file.
-
 ## How To Use
 
 Welcome,
@@ -20,12 +15,12 @@ code.
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
-| PowerPoint        | - [Presentation](presentations.md) | Slides |
-| PPT Recording     | - [Presentation](https://globaleventcdn.blob.core.windows.net/assets/data/data10/DATA10.mp4) | Video Recording of the PowerPoint slides with no audio |
-| Videos            | - [Microsoft Ignite Orlando Recording](https://myignite.techcommunity.microsoft.com/sessions/84354) | Example Presetations of this Session |
-| Demos             | - [Demo 1 - Exploring a Modern Data Warehouse](demos/README.md#demo-1---exploring-a-modern-data-warehouse) | Additional Demo Content | 
-| Demo Recordings           | - [Data10 - Prequisites](https://globaleventcdn.blob.core.windows.net/assets/data/data10/Data10_Prerequisites-NoAudio.mp4) | Recording of the Demo Live 1 | 
-| Demo Recordings           | - [Data10 - Demo](https://globaleventcdn.blob.core.windows.net/assets/data/data10/Data10-Demo-NoAudio.mp4 ) | Recording of the Demo Live 2 | 
+| PowerPoint        | [Presentation](https://aka.ms/AArxdf2) | Slides |
+| Video            | [Session Walkthrough](https://aka.ms/AArxdew) | Example Presentation of this Session |
+| Demo Recordings           | [Demo 1 - Get started with Azure AI Studio](https://aka.ms/AArxl37) | Recording of the Demo Live 1 with no audio| 
+| Demo Recordings           | [Demo 2 - Prompt engineering techniques in Azure AI Studio](https://aka.ms/AArxl3e) | Recording of the Demo Live 2 with no audio| 
+| Demo Recordings           | [Demo 3 - Add your own data to your app flow](https://aka.ms/AArxdeq) | Recording of the Demo Live 3 with no audio| 
+| Demo Recordings           | [Demo 4 - Evaluating your prototype with Prompt Flow](https://aka.ms/AArxl3p) | Recording of the Demo Live 4 with no audio| 
 
 ## Get Started
 
