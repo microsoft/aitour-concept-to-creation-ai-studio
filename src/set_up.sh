@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Variables
 resourceGroupName="aitourbrk441k"
 openAIInstanceName="aitourbrk441k-openai"

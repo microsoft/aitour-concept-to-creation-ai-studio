@@ -1,6 +1,7 @@
 
 # Demo Setup - Azure Portal and Azure CLI
 
+
 ## Demo Prerequistes: 
 
 - You will need an Azure account.  If you don't have an Azure account, you can create one for free [here](https://azure.microsoft.com/en-us/free/).
