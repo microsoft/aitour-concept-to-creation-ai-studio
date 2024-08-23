@@ -1,8 +1,3 @@
-## TODO:
-Update this page as you see fit to properly train a future presenter of your content. A past train the trainer repo is included below for your assitance, but feel free to make any changes.
-
-Note: Please make sure to update any links within the markdown so they point to the correct file.
-
 ## How To Use
 
 Welcome,
@@ -20,50 +15,52 @@ code.
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
-| PowerPoint        | - [Presentation](presentations.md) | Slides |
-| PPT Recording     | - [Presentation](https://globaleventcdn.blob.core.windows.net/assets/data/data10/DATA10.mp4) | Video Recording of the PowerPoint slides with no audio |
-| Videos            | - [Microsoft Ignite Orlando Recording](https://myignite.techcommunity.microsoft.com/sessions/84354) | Example Presetations of this Session |
-| Demos             | - [Demo 1 - Exploring a Modern Data Warehouse](demos/README.md#demo-1---exploring-a-modern-data-warehouse) | Additional Demo Content | 
-| Demo Recordings           | - [Data10 - Prequisites](https://globaleventcdn.blob.core.windows.net/assets/data/data10/Data10_Prerequisites-NoAudio.mp4) | Recording of the Demo Live 1 | 
-| Demo Recordings           | - [Data10 - Demo](https://globaleventcdn.blob.core.windows.net/assets/data/data10/Data10-Demo-NoAudio.mp4 ) | Recording of the Demo Live 2 | 
+| PowerPoint        | [Presentation](https://aka.ms/AArxdf2) | Slides |
+| Video            | [Session Walkthrough](https://aka.ms/AArxdew) | Example Presentation of this Session |
+| Demo Recordings           | [Demo 1 - Get started with Azure AI Studio](https://aka.ms/AArxl37) | Recording of the Demo Live 1 with no audio| 
+| Demo Recordings           | [Demo 2 - Prompt engineering techniques in Azure AI Studio](https://aka.ms/AArxl3e) | Recording of the Demo Live 2 with no audio| 
+| Demo Recordings           | [Demo 3 - Add your own data to your app flow](https://aka.ms/AArxdeq) | Recording of the Demo Live 3 with no audio| 
+| Demo Recordings           | [Demo 4 - Evaluating your prototype with Prompt Flow](https://aka.ms/AArxl3p) | Recording of the Demo Live 4 with no audio| 
 
 ## Get Started
 
 This training repository is divided in to the following sections:
 
-| [Slides](#slides) | [Demos](demos/README.md) | [Deployment](deployment/README.md) | 
+| [Slides](#slides) | [Demos](../src/README.md) | [Set up](../src/set_up.md) | 
 |-------------------|---------------------------|--------------------------------------
-| 28 slides - 30 minutes| 1 demos - 15 minutes | Demo setup
+| 22 slides - 20 minutes| 4 demos - 25 minutes | Demo setup
 
 ## Slides
 
-The [slides](presentations.md) have presenter notes in each part of the session
+The [slides](https://aka.ms/AArxdf2) have presenter notes in each part of the session.
 
 ### Timing
 
 | Time        | Description 
 --------------|-------------
-0:00 - 5:00   | Intro to the session 
-5:00 - 15:00  | Why Modern Data Warehousing
-15:00 - 20:00 | Building the Modern data warehouse
-20:00 - 35:00 | Designing a modern data warehouse solution
-35:00 - 40:00 | The evolution of cloud scale analytics
-40:00 - 45:00 | Session review
+0:00 - 2:00   | Intro to the session 
+2:00 - 10:00  | Azure AI Platform overview
+10:00 - 25:00 | Prompt engineering
+25:00 - 37:00 | Grounded prompting
+37:00 - 43:00 | Evaluating your prototype
+43:00 - 45:00 | Wrap up
 
 ## Deployment / Preparation
 
 >**What's Here?** Deploying the demo environment on Azure - including the prerequisites.
 
-[Instructions and prerequisites are outlined here](deployment/README.md). 
+[Instructions and prerequisites are outlined here](../src/set_up.md). 
 
 
 ## Demos
 
 > **What's Here?** Pre-delivery preparation, stage ready videos, required files (such as JSON templates), and walk-through videos
 
-Detailed explanations of each demonstration associated with this presentation can be found in this section. There are 3 "live from stage" technical demonstrations that utilize a number of tools both in and out of Azure. [You can get a high level overview of the tools and how we will be using them here](demos/README.md).
+Detailed explanations of each demonstration associated with this presentation can be found in this section. There are 4 "live from stage" technical demonstrations that utilize a number of tools in Azure AI Platform. [You can get a high level overview of the tools and how we will be using them here](../src/README.md).
 
 | Demo 	                                                                                               | Minutes | Video |
 -------------------------------------------------------------------------------------------------------|---------|----------------- | 
-|  [1 - Exploring a Modern Data Warehouse](demos/README.md#demo-1---exploring-a-modern-data-warehouse) | 15       | [Link](https://globaleventcdn.blob.core.windows.net/assets/data/data10/Data10-Demo-NoAudio.mp4) |
-
+|  [1 - Get started with Azure AI Studio](../src/demo1_get_started_with_Azure_AI_Studio.md) | 7       | [Link](https://aka.ms/AArxl37) |
+|  [2 - Prompt engineering techniques in Azure AI Studio](../src/demo2_prompt_eng_techniques_playground.md) | 9       | [Link](https://aka.ms/AArxl37) |
+|  [3 - Add your own data to your app flow](../src/demo3_add_your_own_data_w_pf.md)| 5       | [Link](https://aka.ms/AArxdeq) |
+|  [4 - Evaluating your prototype with Prompt Flow](../src/demo4_evaluate_your_prototype_w_pf.md)| 3      | [Link](https://aka.ms/AArxl3p) |
