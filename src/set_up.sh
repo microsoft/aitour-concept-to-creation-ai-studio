@@ -1,21 +1,15 @@
 #!/bin/bash
 
+
 # Variables
 resourceGroupName="aitourbrk441k"
 openAIInstanceName="aitourbrk441k-openai"
 location="swedencentral"  # Change to your preferred region
 workspaceName="aitour-aml-workspace"
-# promptFlowFile="web_designer_flow/flow.dag.yaml" 
 promptFlowFile="flow.dag.yaml" 
 
 src\web_designer_flow\flow.dag.yaml
 
-# modelDeploymentName="gpt-4o"
-# modelName="gpt-4o"
-# modelFormat="OpenAI"
-# modelVersion="2024-05-13"
-# modelCapacity="1000"
-# maxTokens="1000"
 
 # Create the resource group
 echo "Creating resource group $resourceGroupName in location $location"
@@ -70,15 +64,12 @@ az cognitiveservices account deployment create \
     --resource-group $resourceGroupName
 
 # Output details of the deployment
-# az cognitiveservices account deployment show --resource-group $resourceGroupName --name $modelDeploymentName --instance $openAIInstanceName
+az cognitiveservices account deployment show --resource-group $resourceGroupName --name $modelDeploymentName --instance $openAIInstanceName
 
 # Create an Azure Machine Learning workspace
 echo "Creating Azure Machine Learning workspace $workspaceName in $resourceGroupName in location $location"
 az ml workspace create --name $workspaceName --resource-group $resourceGroupName --location $location
 
-# Enable Prompt Flow in the workspace (this command assumes Prompt Flow is enabled by default in supported regions)
-# echo "Enabling Prompt Flow in $workspaceName"
-# az ml workspace update --name $workspaceName --resource-group $resourceGroupName --set features.prompt_flow=true
 
 # Execute the Prompt Flow YAML
 cd web_designer_flow
