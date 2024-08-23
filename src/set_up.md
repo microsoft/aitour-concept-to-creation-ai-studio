@@ -1,5 +1,5 @@
 
-# Demo Setup - Azure POrtal and Azure CLI
+# Demo Setup - Azure Portal and Azure CLI
 
 ## Demo Prerequistes: 
 
@@ -9,7 +9,7 @@
 
 For more information, see [https://docs.microsoft.com/en-us/azure/openai/overview](https://docs.microsoft.com/en-us/azure/openai/overview).
 
-- *Warning*: OPenAI reources are amazing but can be EXPENSIVE!  Make sure you review the costs associated with the OPenAI resources that you are creating.
+- *Warning*: OpenAI reources are amazing but can be EXPENSIVE!  Make sure you review the costs associated with the OPenAI resources that you are creating.
 
 ## Option 1: Set up the demos using the Azure Portal and the Azure AI Studio UI
 
