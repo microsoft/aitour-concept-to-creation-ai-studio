@@ -6,11 +6,13 @@
 
 - You will need an Azure account.  If you don't have an Azure account, you can create one for free [here](https://azure.microsoft.com/en-us/free/).
 
-- Make sure that you have capacity for the OpenAI resources you are creating in your Azure subscription.  Note that not all OpenAI resources are available in all regions, so make sure to check availability and choose a region that supports this demo, specifically the gpt-4o, gpt-4 and text-embedding-ada-002 models, as well as prompt flow in ml workspaces.  
-
+- Make sure that you have capacity for the OpenAI resources you are creating in your Azure subscription.  Note that not all OpenAI resources are available in all regions, so make sure to check availability and choose a region that supports this demo, specifically the gpt-4o, gpt-4 and text-embedding-ada-002 models.
 For more information, see [https://docs.microsoft.com/en-us/azure/openai/overview](https://docs.microsoft.com/en-us/azure/openai/overview).
 
-- *Warning*: OpenAI reources are amazing but can be EXPENSIVE!  Make sure you review the costs associated with the OPenAI resources that you are creating.
+- You will need an IDE to build and test your first LLMs-based application. You can choose to work on your local [Visual Studio Code](https://code.visualstudio.com/) desktop app or run a [GitHub Codespace](https://github.com/features/codespaces) in the browser.
+
+> [!NOTE] 
+> OpenAI resources are amazing but can be EXPENSIVE!  Make sure you review the costs associated with the OpenAI resources that you are creating.
 
 ## Option 1: Set up the demos using the Azure Portal and the Azure AI Studio UI
 
@@ -29,16 +31,15 @@ where the key vault and the storage account are created by default when you crea
 
 # Option 2: Azure CLI Automation Script
 
-# *NOTE*: This script is a work in progress, please check back for updates.  The script is not yet complete.
-
 ## Azure CLI Prerequisites
 
-
-- The Azure CLI must be installed, or you can use GitHub Codespaces or the Azure CLoud Shell.  Get the Azure CLI at [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
-- You can use the included CLI in GitHub Codespaces to run the script in a browser-based environment.  For more information, see [https://docs.github.com/en/codespaces](https://docs.github.com/en/codespaces).
-- You can also use the included CLI in the Azure Cloud Shell to run the script in a browser-based environment.  For more information, see [https://docs.microsoft.com/en-us/azure/cloud-shell/overview](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
-
-- The extension for Azure Machine Learning must be installed.  See [https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-cli](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-cli) for configuration instructions.
+- The Azure CLI must be installed, or you can use GitHub Codespaces or the Azure Cloud Shell.  Get the Azure CLI at [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). If you are not using the Azure Cloud Shell, you should login from the terminal to the Azure subscription where you want to provision the Azure AI resources. Use the following command to sign in:
+```bash
+az auth login --use-device-code
+```
+- You can use the included CLI in GitHub Codespaces to run the script in a browser-based environment.  For more information, see [https://docs.github.com/codespaces](https://docs.github.com/en/codespaces). 
+- You can also use the included CLI in the Azure Cloud Shell to run the script in a browser-based environment.  For more information, see [https://docs.microsoft.com/azure/cloud-shell/overview](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+- The extension for Azure Machine Learning must be installed.  See [https://docs.microsoft.com/azure/machine-learning/how-to-configure-cli](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-cli) for configuration instructions.
 
 To install the Azure Machine Learning extension, run:
 ```bash
