@@ -26,3 +26,8 @@ Open the [generation_quality_eval.ipynb](./src/generation_quality_eval.ipynb) no
 1. Evaluate the generated pairs against the pre-defined metrics and generate a report with the results.
 
 The evaluation results includes an average score per each metric and per each item of the test dataset, in a range from 0 to 5. You can use this detailed information to understand where your flow is performing well and where it needs improvement.
+
+## Next step: app deployment
+
+Evaluation is an iterative process, in which you use the results of an evaluation run to improve your application flow and then re-evaluate it. For the sake of this demo you used a very simple dataset, but in a real-world scenario you should use a dataset representative of the real data your application will be handling.
+Once you are satisfied with the performance of your application flow, you can move to the next step, which is [deploying it to the Azure Cloud as an online endpoint](https://learn.microsoft.com/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference). This will allow you to interact with your application flow in a production environment, and to monitor its performance and usage.
