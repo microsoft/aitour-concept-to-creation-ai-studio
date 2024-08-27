@@ -27,19 +27,18 @@ az ml workspace create --kind project --resource-group $ai_resource_name_resourc
 ai_resource_ai_service=$ai_resource_name"-aiservice"
 echo "Creating AI Service Account: $ai_resource_ai_service"
 az cognitiveservices account create --kind AIServices --location $location --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --sku S0 --yes > null
-#az cognitiveservices account create --kind OpenAI --location $location --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --sku S0 --yes > null
 
 # Deploying GPT-4o in Azure AI Service
 echo "Deploying GPT-4o"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-05-13" --model-format "OpenAI"
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-05-13" --model-format "OpenAI" --sku-capacity "1" --sku-name "Standard" --capacity "20"
 
 # Deploying GPT-4 in Azure AI Service
 echo "Deploying GPT-4"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "0613" 
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "0613" --sku-capacity "1" --sku-name "Standard" --capacity "20"
 
 # Deploying GPT-4 in Azure AI Service
 echo "Deploying Text-embedding-ada-002"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "text-embedding-ada-002" --model-name "text-embedding-ada-002" --model-format "OpenAI" --model-version "2" 
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "text-embedding-ada-002" --model-name "text-embedding-ada-002" --model-format "OpenAI" --model-version "2" --sku-capacity "1" --sku-name "Standard" --capacity "20"
 
 # Adding connection to the AI Hub
 echo "Adding AI Service Connection to the HUB"
@@ -57,11 +56,11 @@ az ml connection create --file connection.yml --resource-group $ai_resource_name
 rm connection.yml 
 
 # Security
-echo "Disable storage SAS keys"
-storage_resource_id=$(az ml workspace show --name $ai_resource_name_hub_name --resource-group $ai_resource_name_resource_group_name --query storage_account --output tsv)
-storage_name=$(echo $storage_resource_id | awk -F'/' '{print $NF}') 
-az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --allow-shared-key-access false   > null
-az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --min-tls-version TLS1_2  
+#echo "Disable storage SAS keys"
+#storage_resource_id=$(az ml workspace show --name $ai_resource_name_hub_name --resource-group $ai_resource_name_resource_group_name --query storage_account --output tsv)
+#storage_name=$(echo $storage_resource_id | awk -F'/' '{print $NF}') 
+#az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --allow-shared-key-access false   > null
+#az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --min-tls-version TLS1_2  
 
 # AI Search
 tmp_name=$ai_resource_name"-aisearch"
@@ -78,20 +77,3 @@ echo "api_key: $search_key" >> connection_search.yml
 
 az ml connection create --file connection_search.yml --resource-group $ai_resource_name_resource_group_name --workspace-name  $ai_resource_name_hub_name > null
 rm connection_search.yml  
-
-# Create Prompt Flow
-#prompt_flow_file_path= "./flow.dag.yaml"
-#cd web_designer_flow
-#echo "Creating Prompt Flow in $ai_resource_name_hub_name in $ai_resource_name_resource_group_name"
-#cp "./flow.dag.template.yaml" $prompt_flow_file_path
-
-#connection_id_prefix="/subscriptions/${subscription_id}/resourceGroups/${ai_resource_name_resource_group_name}/providers/Microsoft.MachineLearningServices/workspaces/${ai_resource_name_hub_name}/connections"
-
-#sed -i "s@<openai_api_base>@https://${ai_resource_ai_service}.openai.azure.com/@g" "$prompt_flow_file_path"
-#sed -i "s@<openai_connection_id>@${connection_id_prefix}/openai_connection@g" "$prompt_flow_file_path"
-#sed -i "s@<aisearch_connection_id>@${connection_id_prefix}/aisearch_connection@g" "$prompt_flow_file_path"
-#sed -i "s@<aisearch_endpoint>@${ai_resource_ai_search}@g" "$prompt_flow_file_path"
-#sed -i "s@<aisearch_index>@${search_index}@g" "$prompt_flow_file_path"
-
-#poetry run pfazure flow create --subscription "$subscription_id" --resource-group "$resourceGroupName" \
-#    --workspace-name "$hubName" --flow "$promptFlowName" --set type=standard
