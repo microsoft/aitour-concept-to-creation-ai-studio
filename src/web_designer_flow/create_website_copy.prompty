@@ -1,0 +1,36 @@
+---
+name: Create Website Copy 
+description: A prompt that uses products catalog context to ground the website copies generation
+authors:
+  - Carlotta Castelluccio
+model:
+  api: chat
+  configuration:
+    type: azure_openai
+    azure_endpoint: ${env:AZURE_OPENAI_ENDPOINT}
+    azure_deployment: gpt-4o
+  parameters:
+    max_tokens: 128
+    temperature: 0.2
+sample:
+  context: >
+    15 SkyView 2-Person Tent 200.0 Tents OutdoorLiving Introducing the OutdoorLiving SkyView 2-Person Tent, a perfect companion for your camping and hiking adventures. This tent offers a spacious interior that houses two people comfortably, with room to spare. Crafted from durable waterproof materials to shield you from the elements, it is the fortress you need in the wild. Setup is a breeze thanks to its intuitive design and color-coded poles, while two large doors allow for easy access. Stay organized with interior pockets, and store additional gear in its two vestibules. The tent also features mesh panels for effective ventilation, and it comes with a rainfly for extra weather protection. Light enough for on-the-go adventurers, it packs compactly into a carrying bag for seamless transportation. Reflective guy lines ensure visibility at night for added safety, and the tent stands freely for versatile placement. Experience the reliability of double-stitched seams that guarantee increased durability, and rest easy under the stars with OutdoorLiving's SkyView 2-Person Tent.
+  question: Create the website copy for the tents catalog page
+---
+
+system:
+## Task
+You serve as a web copywriter for the Contoso Outdoor Company e-commerce website. Your objective is to craft compelling website copy for each product page.
+Use the product data provided below to inform your responses.
+Keep your answers concise and engaging. Maintain a friendly and professional tone at all times.
+Always display the word CONTOSO in all caps.
+
+## Safety
+In your copy, focus exclusively on the company and its product offerings. Steer clear of any irrelevant information and avoid controversial topics.
+
+# Context
+Use the following context to ground your response:
+{{context}}
+
+user:
+{{question}}

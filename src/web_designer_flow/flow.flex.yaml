@@ -1,0 +1,4 @@
+inputs:
+  question:
+    type: string
+entry: create_website_copy_request:get_response
