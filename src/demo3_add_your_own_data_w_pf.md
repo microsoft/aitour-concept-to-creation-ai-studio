@@ -1,6 +1,6 @@
 # Demo 3 - Add your own data with Prompt Flow and Prompty
 
-In the previous demo you discovered the Playground and interacted with the model through the chat interface. In this demo, you will learn how to build your first gen AI application with [Prompt Flow](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow) and [Prompty](https://prompty.ai/) and connect it to your business data, to provide accurate responses grounded on your data sources.
+In the previous demo you discovered the Playground and interacted with the model through the chat interface. In this demo, you will learn how to build your first gen AI application with [Prompt Flow](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow?WT.mc_id=academic-145965-cacaste) and [Prompty](https://prompty.ai/) and connect it to your business data, to provide accurate responses grounded on your data sources.
 
 In addition to the general pre-requisites defined in the [setup](./set_up.md) guidance, you need to install some additional dependencies to be able to execute your application flow.
 
@@ -8,7 +8,7 @@ In addition to the general pre-requisites defined in the [setup](./set_up.md) gu
 2. Install dependecies with `pip install -r requirements.txt`.
 3. Install the [promptflow VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow).
 
-If you prefer, you can also rely on a pre-built envirnoment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
+If you prefer, you can also rely on a pre-built environment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
 
  [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
@@ -48,7 +48,7 @@ All the app source code is stored in the [web_designer_flow](./src/web_designer_
 - The **create_website_copy.prompty** file that defines the model configuration and the prompt specification. [Prompty](https://prompty.ai/docs) is an asset class and format to enhance prompt engineering, especially useful to build complex prompts made up of dynamic components (data sources, conversation history and more).
 - The **create_website_copy_request.py** file that contains the application logic, which is responsible for:
     1. converting the user query into a vector embedding using text-embedding-ada-002 model
-    1. using the question in raw text and its embedding to perform an hybrid search in the product catalog index and retrieve the context
+    1. using the question in raw text and its embedding to perform a [hybrid search](https://learn.microsoft.com/azure/search/hybrid-search-overview?WT.mc_id=academic-145965-cacaste) in the product catalog index and retrieve the context
     1. loading the prompty file, and use it to combine the system prompt with the user query and the context retrieved to build the final prompt.
     1. using that prompt to generate the final response using the gpt-4o model instance.
 - The **requirements.txt** file that includes all the dependencies needed to run the application flow.
