@@ -14,13 +14,16 @@ There's 4 demos:
 This folder contains the following files and folders:
 
 - `README.md`: this file.
+- `set_up.md`: step-by-step instructions to set up the development environment for the demos using either the Azure Portal or the Azure CLI.
+- `set_up.sh`: bash script to automatize Azure resources provisioning
+- `.env.sample`: sample of the environment config file used to execute the app flow for demo 3 
 - `demo1-get-started.md`: step-by-step instructions to run the demo 1.
 - `demo2-prompt-engineering.md`: step-by-step instructions to run the demo 2.
 - `demo3-add-your-own-data.md`: step-by-step instructions to run the demo 3.
 - `demo4-evaluate-your-prototype.md`: step-by-step instructions to run the demo 4.
 - `media`: folder containing images used in the markdown files.
 - `data`: folder containing the sample datasets used in demos 3 and 4.
-- `web_designer_flow`: the folder containing the flow configuration files for demo 3. 
+- `web_designer_flow`: folder containing the source code files for demo 3 and 4. 
 
 ## Scenario
 
