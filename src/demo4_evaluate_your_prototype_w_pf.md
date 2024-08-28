@@ -11,7 +11,7 @@ In addition to the general pre-requisites defined in the [setup](./set_up.md) gu
 3. Install the [promptflow VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow).
 4. Install the [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extensions in VS Code, to run the evaluation notebook.
 
-If you prefer, you can also rely on a pre-built envirnoment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
+If you prefer, you can also rely on a pre-built environment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
 
  [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
@@ -19,9 +19,9 @@ If you prefer, you can also rely on a pre-built envirnoment which has all the de
 
 The first thing you need to evaluate your app flow is a test dataset. For the sake of this demo you are going to use the [sample dataset](./data/test_dataset.jsonl) provided in the data folder of this repository. 
 
-Open the [generation_quality_eval.ipynb](./src/generation_quality_eval.ipynb) notebook and run the notebook cells to evaluate the performance of your application flow. This notebook performs the following actions:
+Open the [generation_quality_eval.ipynb](./web_designer_flow/generation_quality_eval.ipynb) notebook and run the notebook cells to evaluate the performance of your application flow. This notebook performs the following actions:
 1. Configure the Azure OpenAI model instance and test dataset to be used in the evaluation.
-1. Import class evaluators from the promptflow library to evaluate against the most common generation generation quality metrics - *coherence, relevance, groundedness and fluency*. You can find a definition for each of these metrics [here](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in?tabs=warning#generation-quality-metrics).
+1. Import class evaluators from the promptflow library to evaluate against the most common generation quality metrics - *coherence, relevance, groundedness and fluency*. You can find a definition for each of these metrics [here](https://learn.microsoft.com/azure/ai-studio/concepts/evaluation-metrics-built-in?WT.mc_id=academic-145965-cacaste&tabs=warning#generation-quality-metrics).
 1. Execute a batch run of the app flow against the test dataset, to generate the input-output pairs, where the ouput include the model response and the context retrieved from the products catalog.
 1. Evaluate the generated pairs against the pre-defined metrics and generate a report with the results.
 
@@ -30,4 +30,4 @@ The evaluation results includes an average score per each metric and per each it
 ## Next step: app deployment
 
 Evaluation is an iterative process, in which you use the results of an evaluation run to improve your application flow and then re-evaluate it. For the sake of this demo you used a very simple dataset, but in a real-world scenario you should use a dataset representative of the real data your application will be handling.
-Once you are satisfied with the performance of your application flow, you can move to the next step, which is [deploying it to the Azure Cloud as an online endpoint](https://learn.microsoft.com/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference). This will allow you to interact with your application flow in a production environment, and to monitor its performance and usage.
+Once you are satisfied with the performance of your application flow, you can move to the next step, which is [deploying it to the Azure Cloud as an online endpoint](https://learn.microsoft.com/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference?WT.mc_id=academic-145965-cacaste). This will allow you to interact with your application flow in a production environment, and to monitor its performance and usage.
