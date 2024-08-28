@@ -12,6 +12,11 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
  [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
+ Also, in order to be able to visualize the evaluation results in Azure AI Studio make sure that:
+ - you log in with your Azure AI account used to provision the Azure resources, by using the command `az login --use-device-code`
+ - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Reader" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee "<user1@contoso.com>" ` 
+
+
 ## Add your data to Azure AI Studio Hub
 
 In the [setup](./media/set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
