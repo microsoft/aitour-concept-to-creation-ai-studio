@@ -13,9 +13,10 @@ When developing a generative AI application, selecting the right model is an ess
 
 ## Technology Used
 
-1. Azure AI Studio
+1. [Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/?WT.mc_id=academic-145965-cacaste)
 2. [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/overview?WT.mc_id=academic-145965-cacaste)
 3. [Prompt Flow](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow?WT.mc_id=academic-145965-cacaste)
+4. [Prompty](https://prompty.ai/)
 
 ## Additional Resources and Continued Learning
 
