@@ -62,10 +62,10 @@ rm connection.yml
 #az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --allow-shared-key-access false   > null
 #az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --min-tls-version TLS1_2  
 
-# AI Search
+# Search service creation
 tmp_name=$ai_resource_name"-aisearch"
 ai_resource_ai_search="${tmp_name,,}"
-az search service create --name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --sku Free --partition-count 1 --replica-count 1
+az search service create --name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --sku basic --partition-count 1 --replica-count 1
 
 search_url="https://"$ai_resource_ai_search".search.windows.net"
 search_key=$(az search admin-key show --service-name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --query primaryKey --output tsv)
@@ -77,6 +77,38 @@ echo "api_key: $search_key" >> connection_search.yml
 
 az ml connection create --file connection_search.yml --resource-group $ai_resource_name_resource_group_name --workspace-name  $ai_resource_name_hub_name > null
 rm connection_search.yml  
+
+# Search index creation
+index_name="products-catalog"
+index_schema='{
+  "name": "'$index_name'",
+  "fields": [
+    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
+    {"name": "name", "type": "Edm.String", "searchable": true},
+    {"name": "price", "type": "Edm.Double", "filterable": true, "sortable": true},
+    {"name": "category", "type": "Edm.String", "searchable": true},
+    {"name": "brand", "type": "Edm.String", "searchable": true},
+    {"name": "description", "type": "Edm.String", "searchable": true}
+  ]
+}'
+
+echo "Creating search index: $index_name"
+
+curl -X POST "$search_url/indexes?api-version=2020-06-30" \
+     -H "Content-Type: application/json" \
+     -H "api-key: $search_key" \
+     -d "$index_schema"
+
+$json_file="data/products.json"
+
+# Upload JSON data to the search index from the products.json file
+data=$(jq -c '.[] | { "@search.action": "upload", id: .id, name: .name, price: .price, category: .category, brand: .brand, description: .description }' $json_file | jq -s '{ "value": . }')
+
+curl -X POST "$search_url/indexes/$index_name/docs/index?api-version=2020-06-30" \
+     -H "Content-Type: application/json" \
+     -H "api-key: $search_key" \
+     -d "$data"
+
 
 # create an .env file with hard-coded values for local demos and testing.  
 

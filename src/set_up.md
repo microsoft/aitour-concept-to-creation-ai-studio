@@ -31,9 +31,15 @@ At the end of this step, if you navigate to the [Azure Portal](portal.azure.com)
 ![Azure resource group](./media/azure_rg.png)
 where the key vault and the storage account are created by default when you create a new Azure AI Studio hub.
 
-# Option 2: Azure CLI Automation Script
+## Option 2: Azure CLI Automation Script
 
-## Azure CLI Prerequisites
+*Warning:* An .env file with hard-coded values for local demos and testing will be created in the src directory
+This file is used to store the environment variables for the project for demos and testing only
+Please do not share this file, or commit this file to the repository
+Delete this file when done with demos, or if you are not using it
+
+
+### Azure CLI Prerequisites
 
 - The Azure CLI must be installed, or you can use GitHub Codespaces or the Azure Cloud Shell.  Get the Azure CLI at [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). If you are not using the Azure Cloud Shell, you should login from the terminal to the Azure subscription where you want to provision the Azure AI resources. Use the following command to sign in:
 ```bash
@@ -50,11 +56,12 @@ az extension add --name ml
 >[!NOTE]
 >If you are using GitHub Codespaces, the Azure Machine Learning extension is already installed.
 
-## Usage
+
+### Usage
 
 ### 1. Customize the location:
 
-Replace the `location`: with your preferred Azure region (Default: eastus2).
+Replace the `location`: with your preferred Azure region (Default: swedencentral).
 
 ### 2. Run the Script
 
