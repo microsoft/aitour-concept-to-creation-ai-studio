@@ -23,6 +23,9 @@ In the [setup](./media/set_up.md) section, you created an Azure AI Search servic
 
 Let's start by adding a new data source to your Azure AI Studio Hub.
 
+>[!NOTE]
+>If you used the [set_up.sh](./set_up.sh) script to automatically provision your Azure AI Studio resources, you can skip this step as the index was automatically created. 
+
 1. Download the [Contoso products Catalog](./data/products.csv) csv file, a sample dataset that contains product information.
 1. Go to the Azure AI Studio Hub and click on the **Data** tab.
 1. Click on the **+ New data** button to create a new data source.
