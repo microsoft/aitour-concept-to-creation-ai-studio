@@ -14,7 +14,10 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
  Also, in order to be able to visualize the evaluation results in Azure AI Studio make sure that:
  - you log in with your Azure AI account used to provision the Azure resources, by using the command `az login --use-device-code`
- - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee "<user1@contoso.com>" ` 
+ - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee "<user1@contoso.com>" `
+
+>[!NOTE]
+>If you used the [set_up.sh](./set_up.sh) script to automatically provision your Azure AI Studio resources, you can skip this step because the role assignment was done for you. You can jump directly to the [Explore your first gen AI solution](#explore-your-first-gen-ai-solution), since also the creation index is managed by the script.
 
 
 ## Add your data to Azure AI Studio Hub
@@ -22,9 +25,6 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 In the [setup](./media/set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
 
 Let's start by adding a new data source to your Azure AI Studio Hub.
-
->[!NOTE]
->If you used the [set_up.sh](./set_up.sh) script to automatically provision your Azure AI Studio resources, you can skip this step as the index was automatically created. 
 
 1. Download the [Contoso products Catalog](./data/products.csv) csv file, a sample dataset that contains product information.
 1. Go to the Azure AI Studio Hub and click on the **Data** tab.

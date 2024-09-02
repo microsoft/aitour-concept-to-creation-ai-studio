@@ -3,6 +3,7 @@
 prefix="BRK441"
 location="swedencentral"
 subscription_id=$(az account show --query id --output tsv)
+user_id=$(az ad signed-in-user show --query id --output tsv)
 
 ai_resource_name="$prefix-$(shuf -i 1000-9999 -n 1)"
 echo "Resource name: $ai_resource_name"  
@@ -61,6 +62,8 @@ rm connection.yml
 #storage_name=$(echo $storage_resource_id | awk -F'/' '{print $NF}') 
 #az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --allow-shared-key-access false   > null
 #az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --min-tls-version TLS1_2  
+
+az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/$subscription_id/resourceGroups/$ai_resource_name_resource_group_name --assignee-principal-type User --assignee-object-id $user_id
 
 # Search service creation
 tmp_name=$ai_resource_name"-aisearch"
