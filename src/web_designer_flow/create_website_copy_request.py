@@ -5,9 +5,11 @@ from sys import argv
 import os
 import pathlib
 from azure.core.credentials import AzureKeyCredential
-from promptflow.tools.common import init_azure_openai_client
-from promptflow.connections import AzureOpenAIConnection
-from promptflow.core import (AzureOpenAIModelConfiguration, Prompty, tool)
+#from promptflow.tools.common import init_azure_openai_client
+#from promptflow.connections import AzureOpenAIConnection
+#from promptflow.core import (AzureOpenAIModelConfiguration, Prompty, tool)
+import prompty
+import prompty.azure
 from typing import List
 from azure.search.documents import SearchClient
 from azure.search.documents.models import (
@@ -90,10 +92,10 @@ def get_response(question):
     }
 
     data_path = os.path.join(pathlib.Path(__file__).parent.resolve(), "./create_website_copy.prompty")
-    prompty_obj = Prompty.load(data_path, model=override_model)
+    prompty_obj = prompty.load(data_path, model=override_model)
 
-    result = prompty_obj(question = question, context = context)
+    #result = prompty_obj(question = question, context = context)
 
-    print("result: ", result)
+    #print("result: ", result)
 
     return {"answer": result, "context": context}
