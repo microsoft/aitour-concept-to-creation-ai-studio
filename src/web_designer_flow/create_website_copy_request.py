@@ -10,11 +10,14 @@ from azure.core.credentials import AzureKeyCredential
 #from promptflow.core import (AzureOpenAIModelConfiguration, Prompty, tool)
 import prompty
 import prompty.azure
+from prompty.tracer import trace
+import json
 from typing import List
 from azure.search.documents import SearchClient
 from azure.search.documents.models import (
     VectorizedQuery
 )
+from openai import AzureOpenAI
 
 def retrieve_documentation(
     question: str,
@@ -58,20 +61,18 @@ def get_context(question, embedding):
 
 
 def get_embedding(question: str):
-    connection = AzureOpenAIConnection(        
-                    azure_deployment="text-embedding-ada-002",
+    client = AzureOpenAI(       
                     api_key=os.environ["AZURE_OPENAI_KEY"],
                     api_version=os.environ["AZURE_OPENAI_API_VERSION"],
-                    api_base=os.environ["AZURE_OPENAI_ENDPOINT"]
+                    azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"]
                     )
                 
-    client = init_azure_openai_client(connection)
-
     return client.embeddings.create(
             input=question,
             model="text-embedding-ada-002",
         ).data[0].embedding
-@tool
+
+@trace
 def get_response(question):
     print("question:", question)
     embedding = get_embedding(question)
@@ -80,22 +81,20 @@ def get_response(question):
     print("context:", context)
     print("getting result...")
 
-    configuration = AzureOpenAIModelConfiguration(
-        azure_deployment="gpt-4o",
-        api_key=os.environ["AZURE_OPENAI_KEY"],
-        api_version=os.environ["AZURE_OPENAI_API_VERSION"],
-        azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"]
-    )
-    override_model = {
-        "configuration": configuration,
-        "parameters": {"max_tokens": 512}
-    }
 
     data_path = os.path.join(pathlib.Path(__file__).parent.resolve(), "./create_website_copy.prompty")
-    prompty_obj = prompty.load(data_path, model=override_model)
+    prompty_obj = prompty.load(data_path)
+    prepared_template = prompty.prepare(prompty_obj, inputs= {"question":question, "context":context})
+    full_context = prepared_template[0]["content"]
+    print("full context: ", full_context)
 
-    #result = prompty_obj(question = question, context = context)
+    result = prompty.execute(data_path, inputs= {"question":question, "context":context})
 
-    #print("result: ", result)
+    print("result:", result)
 
-    return {"answer": result, "context": context}
+    return {"answer": result, "context": full_context}
+
+
+if __name__ == "__main__":
+    question = "Create the website copy for the tents catalog page"
+    get_response(question)

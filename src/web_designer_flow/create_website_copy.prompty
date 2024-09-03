@@ -8,9 +8,11 @@ model:
   configuration:
     type: azure_openai
     azure_endpoint: ${env:AZURE_OPENAI_ENDPOINT}
+    api_key: ${env:AZURE_OPENAI_KEY}
+    api_version: ${env:AZURE_OPENAI_API_VERSION}
     azure_deployment: gpt-4o
   parameters:
-    max_tokens: 128
+    max_tokens: 512
     temperature: 0.2
 sample:
   context: >
