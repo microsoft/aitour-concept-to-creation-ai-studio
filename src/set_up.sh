@@ -3,6 +3,7 @@
 prefix="BRK441"
 location="swedencentral"
 subscription_id=$(az account show --query id --output tsv)
+user_id=$(az ad signed-in-user show --query id --output tsv)
 
 ai_resource_name="$prefix-$(shuf -i 1000-9999 -n 1)"
 echo "Resource name: $ai_resource_name"  
@@ -62,6 +63,8 @@ rm connection.yml
 #az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --allow-shared-key-access false   > null
 #az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --min-tls-version TLS1_2  
 
+az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/$subscription_id/resourceGroups/$ai_resource_name_resource_group_name --assignee-principal-type User --assignee-object-id $user_id
+
 # Search service creation
 tmp_name=$ai_resource_name"-aisearch"
 ai_resource_ai_search="${tmp_name,,}"
@@ -77,6 +80,26 @@ echo "api_key: $search_key" >> connection_search.yml
 
 az ml connection create --file connection_search.yml --resource-group $ai_resource_name_resource_group_name --workspace-name  $ai_resource_name_hub_name > null
 rm connection_search.yml  
+
+# create an .env file with hard-coded values for local demos and testing.  
+
+echo "An .env file with hard-coded values for local demos and testing has been created in the src directory"
+echo "Please do not share this file, or commit this file to the repository"
+echo "This file is used to store the environment variables for the project for demos and testing only"
+echo "Delete this file when done with demos, or if you are not using it"
+
+echo "# Please do not share this file, or commit this file to the repository" > .env
+echo "# This file is used to store the environment variables for the project for demos and testing only" >> .env
+echo "# delete this file when done with demos, or if you are not using it" >> .env
+echo "AZURE_OPENAI_ENDPOINT=https://$location.api.cognitive.microsoft.com/" >> .env
+echo "AZURE_OPENAI_KEY=$ai_service_api_key" >> .env
+echo 'AZURE_OPENAI_API_VERSION="2023-03-15-preview"' >> .env
+echo 'AZURE_SEARCH_INDEX_NAME="products-catalog"' >> .env
+echo "AZURE_SEARCH_ENDPOINT=$search_url" >> .env
+echo "AZURE_SEARCH_KEY=$search_key" >> .env
+echo "AZURE_SUBSCRIPTION_ID=$subscription_id" >> .env
+echo "AZURE_RESOURCE_GROUP=$ai_resource_name_resource_group_name" >> .env
+echo "AZURE_AI_PROJECT_NAME=$ai_resource_project_name" >> .env
 
 # Search index creation
 index_name="products-catalog"
@@ -108,25 +131,3 @@ curl -X POST "$search_url/indexes/$index_name/docs/index?api-version=2020-06-30"
      -H "Content-Type: application/json" \
      -H "api-key: $search_key" \
      -d "$data"
-
-
-# create an .env file with hard-coded values for local demos and testing.  
-
-echo "An .env file with hard-coded values for local demos and testing has been created in the src directory"
-echo "Please do not share this file, or commit this file to the repository"
-echo "This file is used to store the environment variables for the project for demos and testing only"
-echo "Delete this file when done with demos, or if you are not using it"
-
-
-echo "# Please do not share this file, or commit this file to the repository" > .env
-echo "# This file is used to store the environment variables for the project for demos and testing only" >> .env
-echo "# delete this file when done with demos, or if you are not using it" >> .env
-echo "AZURE_OPENAI_ENDPOINT=https://$location.api.cognitive.microsoft.com/" >> .env
-echo "AZURE_OPENAI_KEY=$ai_service_api_key" >> .env
-echo 'AZURE_OPENAI_API_VERSION="2023-03-15-preview"' >> .env
-echo 'AZURE_SEARCH_INDEX_NAME="products-catalog"' >> .env
-echo "AZURE_SEARCH_ENDPOINT=$search_url" >> .env
-echo "AZURE_SEARCH_KEY=$search_key" >> .env
-echo "AZURE_SUBSCRIPTION_ID=$subscription_id" >> .env
-echo "AZURE_RESOURCE_GROUP=$ai_resource_name_resource_group_name" >> .env
-echo "AZURE_AI_PROJECT_NAME=$ai_resource_project_name" >> .env
