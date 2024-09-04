@@ -84,7 +84,6 @@ def get_response(question):
     prompty_obj = prompty.load(data_path)
     prepared_template = prompty.prepare(prompty_obj, inputs= {"question":question, "context":context})
     full_context = prepared_template[0]["content"]
-    print("full context: ", full_context)
 
     result = prompty.execute(data_path, inputs= {"question":question, "context":context})
 
