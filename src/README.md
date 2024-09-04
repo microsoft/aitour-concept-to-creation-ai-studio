@@ -6,7 +6,7 @@ There's 4 demos:
 
 - **Demo 1 - Get Started with Azure AI Studio**: this demo is an introduction to Azure AI Studio, where you will learn how to navigate the platform and explore the main features.
 - **Demo 2 - Prompt Engineering Techniques in the Azure AI Studio Playground**: this demo is intended to present some basic and advanced prompt engineering techniques in the *Playground* of Azure AI Studio.
-- **Demo 3 - Add your own data with Prompt Flow**: this demo is intended to showcase how to build your first DAG flow in Prompt Flow and connect it to your business data, leveraging *retrieval Augmented Generation*(RAG).
+- **Demo 3 - Add your own data with Prompty**: this demo is intended to showcase how to build your first LLM-based solution and connect it to your business data, leveraging *Retrieval Augmented Generation*(RAG).
 - **Demo 4 - Evaluate your prototype with Prompt Flow**: once your first flow is ready and connected to your data, go through this demo to evaluate the performance of your solution.
 
 ## Folder structure
@@ -23,7 +23,7 @@ This folder contains the following files and folders:
 - `demo4-evaluate-your-prototype.md`: step-by-step instructions to run the demo 4.
 - `media`: folder containing images used in the markdown files.
 - `data`: folder containing the sample datasets used in demos 3 and 4.
-- `web_designer_flow`: folder containing the source code files for demo 3 and 4. 
+- `web_designer_app`: folder containing the source code files for demo 3 and 4. 
 
 ## Scenario
 

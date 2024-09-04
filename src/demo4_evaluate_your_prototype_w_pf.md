@@ -15,6 +15,10 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
  [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
+Also, in order to be able to visualize the evaluation results in Azure AI Studio make sure that:
+ - you log in with your Azure AI account used to provision the Azure resources, by using the command `az login --use-device-code`
+ - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee-id "<user-id>" ` 
+
 ## Evaluate and review the performance of your application
 
 The first thing you need to evaluate your app flow is a test dataset. For the sake of this demo you are going to use the [sample dataset](./data/test_dataset.jsonl) provided in the data folder of this repository. 
