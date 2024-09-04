@@ -5,12 +5,9 @@ from sys import argv
 import os
 import pathlib
 from azure.core.credentials import AzureKeyCredential
-#from promptflow.tools.common import init_azure_openai_client
-#from promptflow.connections import AzureOpenAIConnection
-#from promptflow.core import (AzureOpenAIModelConfiguration, Prompty, tool)
 import prompty
 import prompty.azure
-from prompty.tracer import trace
+from prompty.tracer import trace, Tracer, PromptyTracer
 import json
 from typing import List
 from azure.search.documents import SearchClient
@@ -19,6 +16,7 @@ from azure.search.documents.models import (
 )
 from openai import AzureOpenAI
 
+@trace
 def retrieve_documentation(
     question: str,
     index_name: str,
@@ -59,7 +57,7 @@ def retrieve_documentation(
 def get_context(question, embedding):
     return retrieve_documentation(question=question, index_name=os.environ["AZURE_SEARCH_INDEX_NAME"], embedding=embedding)
 
-
+@trace
 def get_embedding(question: str):
     client = AzureOpenAI(       
                     api_key=os.environ["AZURE_OPENAI_KEY"],
@@ -96,5 +94,9 @@ def get_response(question):
 
 
 if __name__ == "__main__":
+    # add PromptyTracer
+    local_trace = PromptyTracer()
+    Tracer.add("PromptyTracer", local_trace.tracer)
+
     question = "Create the website copy for the tents catalog page"
     get_response(question)

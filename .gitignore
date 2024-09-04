@@ -5,3 +5,4 @@ src/web_designer_flow/__pycache__/create_website_copy_request.cpython-311.pyc
 src/web_designer_flow/.promptflow/ux.inputs.json
 src/web_designer_flow/.promptflow/flow.json
 src/web_designer_flow/.promptflow/flow.output.json
+src/.runs/*
