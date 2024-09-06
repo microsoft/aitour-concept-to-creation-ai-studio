@@ -63,4 +63,4 @@ Detailed explanations of each demonstration associated with this presentation ca
 |  [1 - Get started with Azure AI Studio](../src/demo1_get_started_with_Azure_AI_Studio.md) | 7       | [Link](https://aka.ms/AArxl37) |
 |  [2 - Prompt engineering techniques in Azure AI Studio](../src/demo2_prompt_eng_techniques_playground.md) | 9       | [Link](https://aka.ms/AArxl37) |
 |  [3 - Add your own data to your app](../src/demo3_add_your_own_data.md)| 5       | [Link](https://aka.ms/AArxdeq) |
-|  [4 - Evaluating your prototype with Prompt Flow](../src/demo4_evaluate_your_prototype_w_pf.md)| 3      | [Link](https://aka.ms/AArxl3p) |
+|  [4 - Evaluating your prototype with Prompt Flow](../src/demo4_evaluate_your_prototype.md)| 3      | [Link](https://aka.ms/AArxl3p) |

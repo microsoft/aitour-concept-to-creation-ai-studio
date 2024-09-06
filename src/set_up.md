@@ -41,11 +41,11 @@ Delete this file when done with demos, or if you are not using it
 
 ### Azure CLI Prerequisites
 
-- The Azure CLI must be installed, or you can use GitHub Codespaces or the Azure Cloud Shell.  Get the Azure CLI at [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). If you are not using the Azure Cloud Shell, you should login from the terminal to the Azure subscription where you want to provision the Azure AI resources. Use the following command to sign in:
+- The Azure CLI must be installed, or you can use GitHub Codespaces or the Azure Cloud Shell.  Get the Azure CLI at [https://docs.microsoft.com/cli/azure/install-azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-145965-cacaste). If you are not using the Azure Cloud Shell, you should login from the terminal to the Azure subscription where you want to provision the Azure AI resources. Use the following command to sign in:
 ```bash
 az login --use-device-code
 ```
-- You can use the included CLI in GitHub Codespaces to run the script in a browser-based environment.  For more information, see [https://docs.github.com/codespaces](https://docs.github.com/en/codespaces). 
+- You can use the included CLI in GitHub Codespaces to run the script in a browser-based environment.  For more information, see [https://docs.github.com/codespaces](https://docs.github.com/codespaces). 
 - You can also use the included CLI in the Azure Cloud Shell to run the script in a browser-based environment.  For more information, see [https://docs.microsoft.com/azure/cloud-shell/overview](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 - The extension for Azure Machine Learning must be installed.  See [https://docs.microsoft.com/azure/machine-learning/how-to-configure-cli](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-cli) for configuration instructions.
 

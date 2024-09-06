@@ -18,9 +18,6 @@ In the [setup](./media/set_up.md) section, you created an Azure AI Search servic
 
 Let's start by adding a new data source to your Azure AI Studio Hub.
 
->[!NOTE]
->If you used the [set_up.sh](./set_up.sh) script to automatically provision your Azure AI Studio resources, you can skip this step as the index was automatically created. 
-
 1. Download the [Contoso products Catalog](./data/products.csv) csv file, a sample dataset that contains product information.
 1. Go to the Azure AI Studio Hub and click on the **Data** tab.
 1. Click on the **+ New data** button to create a new data source.
@@ -70,3 +67,7 @@ To better visualize the results and also inspect intermediate steps, you can rel
 ![App output](./media/app_output.png)
 
 Differently from the results we got by interacting with the model in the Playground, you can see as this answer is grounded in the products catalog information you uploaded in your Azure AI Studio project. Your application used the user query to retrieve the product information relevant to the tents page and then used it to ground the final output.
+
+> [!TIP]
+> If you face any issue in visualizing the Promptt traces UI, click the *Split Editor Right* button at the top right corner.
+![Split editor button](./media/split_editor_button.png)
