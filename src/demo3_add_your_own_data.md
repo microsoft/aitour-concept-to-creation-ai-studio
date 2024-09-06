@@ -1,24 +1,16 @@
-# Demo 3 - Add your own data with Prompt Flow and Prompty
+# Demo 3 - Add your own data with Prompty
 
-In the previous demo you discovered the Playground and interacted with the model through the chat interface. In this demo, you will learn how to build your first gen AI application with [Prompt Flow](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-flow?WT.mc_id=academic-145965-cacaste) and [Prompty](https://prompty.ai/) and connect it to your business data, to provide accurate responses grounded on your data sources.
+In the previous demo you discovered the Playground and interacted with the model through the chat interface. In this demo, you will learn how to build your first gen AI application with [Prompty](https://prompty.ai/) and connect it to your business data, to provide accurate responses grounded on your data sources.
 
 In addition to the general pre-requisites defined in the [setup](./set_up.md) guidance, you need to install some additional dependencies to be able to execute your application flow.
 
 1. Verify you have Python3 installed on your machine.
 2. Install dependecies with `pip install -r requirements.txt`.
-3. Install the [promptflow VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow).
+3. Install the [prompty VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.prompty). Make sure you switch to the *pre-release* version to get the latest updates.
 
 If you prefer, you can also rely on a pre-built environment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
 
  [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
-
- Also, in order to be able to visualize the evaluation results in Azure AI Studio make sure that:
- - you log in with your Azure AI account used to provision the Azure resources, by using the command `az login --use-device-code`
- - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee "<user1@contoso.com>" `
-
->[!NOTE]
->If you used the [set_up.sh](./set_up.sh) script to automatically provision your Azure AI Studio resources, you can skip this step because the role assignment was done for you. You can jump directly to the [Explore your first gen AI solution](#explore-your-first-gen-ai-solution), since also the creation index is managed by the script.
-
 
 ## Add your data to Azure AI Studio Hub
 
@@ -51,15 +43,13 @@ Wait for the indexing process to be completed, which can take several minutes. T
 
 Now that your index has been registered in your Azure AI Studio project and is ready to be used, you can explore and test your first LLMs-based solution to interact with your data.
 
-All the app source code is stored in the [web_designer_flow](./src/web_designer_flow) folder. It includes:
-- The **flow.flex.yaml** file that defines the structure of the application flow, such as the input parameters and the function entry point. 
+All the app source code is stored in the [web_designer_app](./web_designer_app) folder. It includes:
 - The **create_website_copy.prompty** file that defines the model configuration and the prompt specification. [Prompty](https://prompty.ai/docs) is an asset class and format to enhance prompt engineering, especially useful to build complex prompts made up of dynamic components (data sources, conversation history and more).
 - The **create_website_copy_request.py** file that contains the application logic, which is responsible for:
     1. converting the user query into a vector embedding using text-embedding-ada-002 model
     1. using the question in raw text and its embedding to perform a [hybrid search](https://learn.microsoft.com/azure/search/hybrid-search-overview?WT.mc_id=academic-145965-cacaste) in the product catalog index and retrieve the context
     1. loading the prompty file, and use it to combine the system prompt with the user query and the context retrieved to build the final prompt.
     1. using that prompt to generate the final response using the gpt-4o model instance.
-- The **requirements.txt** file that includes all the dependencies needed to run the application flow.
 
 To execute your application, you need to specify your **environment variables**. Copy the [.env.sample](./src/.env.sample) into a new file named *.env* and fill it out with the details of the resources provisioned during the set-up. To find up your resources credentials navigate to [Azure AI Studio](ai.azure.com) and from the left-side menu select *All hubs*. Pick the Azure AI hub you created during the set-up process and in the overview tab expand the *Connected resources* pane, by clicking on *View All*. From there, you'll be able to see and extract the information needed:
 ![Connected resources](./media/connected_resources_info.png)
@@ -67,9 +57,17 @@ To execute your application, you need to specify your **environment variables**.
 >[!NOTE]
 >If you used the [set_up.sh](./set_up.sh) script to provision your Azure AI Studio resources, you should see a .env file already created and filled out for you. 
 
-Then, use the command below to execute your flow, with a sample question: `pf flow test --flow ./web_designer_flow --inputs question="Create the website copy for the tents catalog page"`.
-After a few seconds, you should get a link to check the app traces UI. Click on it to see the execution details and the response generated by the model, as per screenshot below:
+Then, use the command below from the app directory to execute your application: `python ./create_website_copy_request.py`. This will run the app logic using the Prompty runtime and the sample question specified in the [create_website_copy_request.py](./create_website_copy_request.py) script: "Create the website copy for the tents catalog page".
 
-![Flow output](./media/flow_output.png)
+After a few seconds, you should get printed on the console output the context retrieved from the products catalog data source and the model answer grounded on it. 
+To better visualize the results and also inspect intermediate steps, you can rely on the Prompty Visual Studio Code extension. Navigate to the *Prompty tab* in the left-hand menu and then click on the latest execution logs file in the *Traces* section to open the traces UI, as per screenshots below:
+
+![App traces](./media/app_traces.png)
+
+![App output](./media/app_output.png)
 
 Differently from the results we got by interacting with the model in the Playground, you can see as this answer is grounded in the products catalog information you uploaded in your Azure AI Studio project. Your application used the user query to retrieve the product information relevant to the tents page and then used it to ground the final output.
+
+> [!TIP]
+> If you face any issue in visualizing the Promptt traces UI, click the *Split Editor Right* button at the top right corner.
+![Split editor button](./media/split_editor_button.png)

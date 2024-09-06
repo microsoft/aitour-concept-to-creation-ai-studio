@@ -1,8 +1,7 @@
 src/.env
-src/web_designer_flow/.promptflow/flow.detail.json
-src/web_designer_flow/.promptflow/flow.log
-src/web_designer_flow/__pycache__/create_website_copy_request.cpython-311.pyc
-src/web_designer_flow/.promptflow/ux.inputs.json
-src/web_designer_flow/.promptflow/flow.json
-src/web_designer_flow/.promptflow/flow.output.json
+src/web_designer_app/.promptflow/flow.detail.json
+src/web_designer_app/.promptflow/flow.log
+src/web_designer_app/__pycache__/create_website_copy_request.cpython-311.pyc
+src/.runs/*
+src/web_designer_app/.runs/*
 src/null

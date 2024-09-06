@@ -102,32 +102,32 @@ echo "AZURE_RESOURCE_GROUP=$ai_resource_name_resource_group_name" >> .env
 echo "AZURE_AI_PROJECT_NAME=$ai_resource_project_name" >> .env
 
 # Search index creation
-index_name="products-catalog"
-index_schema='{
-  "name": "'$index_name'",
-  "fields": [
-    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
-    {"name": "name", "type": "Edm.String", "searchable": true},
-    {"name": "price", "type": "Edm.Double", "filterable": true, "sortable": true},
-    {"name": "category", "type": "Edm.String", "searchable": true},
-    {"name": "brand", "type": "Edm.String", "searchable": true},
-    {"name": "description", "type": "Edm.String", "searchable": true}
-  ]
-}'
+#index_name="products-catalog"
+#index_schema='{
+#  "name": "'$index_name'",
+#  "fields": [
+#    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
+#    {"name": "name", "type": "Edm.String", "searchable": true},
+#    {"name": "price", "type": "Edm.Double", "filterable": true, "sortable": true},
+#    {"name": "category", "type": "Edm.String", "searchable": true},
+#    {"name": "brand", "type": "Edm.String", "searchable": true},
+#    {"name": "description", "type": "Edm.String", "searchable": true}
+#  ]
+#}'
 
-echo "Creating search index: $index_name"
+#echo "Creating search index: $index_name"
 
-curl -X POST "$search_url/indexes?api-version=2020-06-30" \
-     -H "Content-Type: application/json" \
-     -H "api-key: $search_key" \
-     -d "$index_schema"
+#curl -X POST "$search_url/indexes?api-version=2020-06-30" \
+#     -H "Content-Type: application/json" \
+#     -H "api-key: $search_key" \
+#     -d "$index_schema"
 
-$json_file="data/products.json"
+#$json_file="data/products.json"
 
 # Upload JSON data to the search index from the products.json file
-data=$(jq -c '.[] | { "@search.action": "upload", id: .id, name: .name, price: .price, category: .category, brand: .brand, description: .description }' $json_file | jq -s '{ "value": . }')
+#data=$(jq -c '.[] | { "@search.action": "upload", id: .id, name: .name, price: .price, category: .category, brand: .brand, description: .description }' $json_file | jq -s '{ "value": . }')
 
-curl -X POST "$search_url/indexes/$index_name/docs/index?api-version=2020-06-30" \
-     -H "Content-Type: application/json" \
-     -H "api-key: $search_key" \
-     -d "$data"
+#curl -X POST "$search_url/indexes/$index_name/docs/index?api-version=2020-06-30" \
+#     -H "Content-Type: application/json" \
+#     -H "api-key: $search_key" \
+#     -d "$data"
