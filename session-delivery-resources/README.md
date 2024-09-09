@@ -1,5 +1,7 @@
 ## How To Use
 
+The following resources are intended for a presenter to learn and deliver the session.
+
 Welcome,
 
 We're glad you are here and look forward to your delivery of this amazing content. As an experienced presenter, we know you know HOW to present so this guide will focus on WHAT you need to present. It will provide you a full run-through of the presentation created by the presentation design team. 
