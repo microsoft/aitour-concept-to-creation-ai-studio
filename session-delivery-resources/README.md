@@ -17,7 +17,7 @@ code.
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
-| PowerPoint        | [Presentation](https://aka.ms/AArxdf2) | Slides |
+| PowerPoint        | [En_Presentation](https://aka.ms/AArxdf2), [Es-Xl_Presentation](https://aka.ms/AAs7u28), [Pt-Br_Presentation](https://aka.ms/AAs7mfx) | Slides |
 | Video            | [Session Walkthrough](https://aka.ms/AArxdew) | Example Presentation of this Session |
 | Demo Recordings           | [Demo 1 - Get started with Azure AI Studio](https://aka.ms/AArxl37) | Recording of the Demo Live 1 with no audio| 
 | Demo Recordings           | [Demo 2 - Prompt engineering techniques in Azure AI Studio](https://aka.ms/AArxl3e) | Recording of the Demo Live 2 with no audio| 
