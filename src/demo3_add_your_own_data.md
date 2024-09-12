@@ -50,6 +50,11 @@ All the app source code is stored in the [web_designer_app](./web_designer_app) 
     1. using the question in raw text and its embedding to perform a [hybrid search](https://learn.microsoft.com/azure/search/hybrid-search-overview?WT.mc_id=academic-145965-cacaste) in the product catalog index and retrieve the context
     1. loading the prompty file, and use it to combine the system prompt with the user query and the context retrieved to build the final prompt.
     1. using that prompt to generate the final response using the gpt-4o model instance.
+ 
+ >[!NOTE]
+ >For the sake of this example we are using an *API Key authentication* method for both Azure OpenAI Service and Azure AI Search Service. For production scenarios, we do recommend using keyless connections as a security best practice. Learn how to configure *Microsoft Entra ID authentication*, by reading the following resources:
+>[How to configure Azure OpenAI Service with Microsoft Entra ID authentication](https://learn.microsoft.com/azure/ai-services/openai/how-to/managed-identity?WT.mc_id=academic-145965-cacaste)
+>[How to configure Azure AI Search Service with Microsoft Entra ID authentication](https://learn.microsoft.com/azure/search/keyless-connections?WT.mc_id=academic-145965-cacaste)
 
 To execute your application, you need to specify your **environment variables**. Copy the [.env.sample](./src/.env.sample) into a new file named *.env* and fill it out with the details of the resources provisioned during the set-up. To find up your resources credentials navigate to [Azure AI Studio](ai.azure.com) and from the left-side menu select *All hubs*. Pick the Azure AI hub you created during the set-up process and in the overview tab expand the *Connected resources* pane, by clicking on *View All*. From there, you'll be able to see and extract the information needed:
 ![Connected resources](./media/connected_resources_info.png)
