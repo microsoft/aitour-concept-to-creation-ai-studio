@@ -10,7 +10,7 @@ In addition to the general pre-requisites defined in the [setup](./set_up.md) gu
 
 If you prefer, you can also rely on a pre-built environment which has all the dependecies already installed for you. Just click the button below to open this repo into a [GitHub Codespace](https://github.com/codespaces).
 
- [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
+ [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826287138&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
 ## Add your data to Azure AI Studio Hub
 
