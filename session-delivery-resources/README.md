@@ -17,7 +17,7 @@ code.
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
-| PowerPoint        | [En_Presentation](https://aka.ms/AArxdf2), [Es-Xl_Presentation](https://aka.ms/AAs7u28), [Pt-Br_Presentation](https://aka.ms/AAs7mfx) | Slides |
+| PowerPoint        | [Presentation](https://aka.ms/AArxdf2) | Slides, [Additional Languages](https://github.com/microsoft/aitour-concept-to-creation-ai-studio/blob/main/session-delivery-resources/README.md#slides-in-additional-languages) |
 | Video            | [Session Walkthrough](https://aka.ms/AArxdew) | Example Presentation of this Session |
 | Demo Recordings           | [Demo 1 - Get started with Azure AI Studio](https://aka.ms/AArxl37) | Recording of the Demo Live 1 with no audio| 
 | Demo Recordings           | [Demo 2 - Prompt engineering techniques in Azure AI Studio](https://aka.ms/AArxl3e) | Recording of the Demo Live 2 with no audio| 
@@ -47,6 +47,12 @@ The [slides](https://aka.ms/AArxdf2) have presenter notes in each part of the se
 37:00 - 43:00 | Evaluating your prototype
 43:00 - 45:00 | Wrap up
 
+### Slides in additional languages
+| Language | Last updated | 
+|------------------- | ---- |
+| [Spanish](https://aka.ms/AAs7u28) | 2024.09.17 | 
+| [Portuguese](https://aka.ms/AAs7mfx) | 2024.09.17| 
+
 ## Deployment / Preparation
 
 >**What's Here?** Deploying the demo environment on Azure - including the prerequisites.
@@ -66,3 +72,10 @@ Detailed explanations of each demonstration associated with this presentation ca
 |  [2 - Prompt engineering techniques in Azure AI Studio](../src/demo2_prompt_eng_techniques_playground.md) | 9       | [Link](https://aka.ms/AArxl37) |
 |  [3 - Add your own data to your app](../src/demo3_add_your_own_data.md)| 5       | [Link](https://aka.ms/AArxdeq) |
 |  [4 - Evaluating your prototype with Prompt Flow](../src/demo4_evaluate_your_prototype.md)| 3      | [Link](https://aka.ms/AArxl3p) |
+
+## Change Log
+Here is a log of the changes made to this file:
+
+| Date       | Changes |
+|------------|---------|
+| 2024.09.17 | Added Change log, Additional language section with Spanish and Portuguese PowerPoint slides |
