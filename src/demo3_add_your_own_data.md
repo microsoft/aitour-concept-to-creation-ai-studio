@@ -14,7 +14,7 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
 ## Add your data to Azure AI Studio Hub
 
-In the [setup](./media/set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
+In the [setup](./set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
 
 Let's start by adding a new data source to your Azure AI Studio Hub.
 
