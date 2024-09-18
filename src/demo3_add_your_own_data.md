@@ -74,5 +74,5 @@ To better visualize the results and also inspect intermediate steps, you can rel
 Differently from the results we got by interacting with the model in the Playground, you can see as this answer is grounded in the products catalog information you uploaded in your Azure AI Studio project. Your application used the user query to retrieve the product information relevant to the tents page and then used it to ground the final output.
 
 > [!TIP]
-> If you face any issue in visualizing the Promptt traces UI, click the *Split Editor Right* button at the top right corner.
+> If you face any issue in visualizing the Prompty traces UI, click the *Split Editor Right* button at the top right corner.
 ![Split editor button](./media/split_editor_button.png)
