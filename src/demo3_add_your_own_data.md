@@ -29,6 +29,7 @@ Next, you will create a new index in your Azure AI Search service to store the p
 
 1. Go to **Search** tab in the Azure AI Studio Hub.
 1. Click on the **+ New index** button.
+1. Change the default name of your index to **"products-catalog"**.
 1. Select **Data in Azure AI Studio** as the data source and then the data source you just uploaded.
 1. In the **Index Settings** section, select the *AzureAISearch* connection you created in the setup phase
 1. In the **Search Setting** section, make sure that vectorization is enabled and select the default Azure OpenAI resource for your hub as *embedding* model.
