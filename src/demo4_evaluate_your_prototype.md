@@ -17,7 +17,7 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
 Also, in order to be able to visualize the evaluation results in Azure AI Studio make sure that:
  - you log in with your Azure AI account used to provision the Azure resources, by using the command `az login --use-device-code`
- - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee-id "<user-id>" ` 
+ - you assign to yourself the *Storage Blob Data Contributor* role to have access permissions to the Azure AI Project storage account `az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroupName> --assignee-principal-type User --assignee-object-id "<user-id>" ` 
 
  >[!NOTE]
  >If you used the [set_up.sh](./set_up.sh) script to provision your Azure AI Studio resources, the role assignment has been already done for you. 
