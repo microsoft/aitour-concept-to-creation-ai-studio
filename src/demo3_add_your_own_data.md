@@ -16,10 +16,10 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
 In the [setup](./set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
 
-Let's start by adding a new data source to your Azure AI Studio Hub.
+Let's start by adding a new data source to your Azure AI Studio Project.
 
 1. Download the [Contoso products Catalog](./data/products.csv) csv file, a sample dataset that contains product information.
-1. Go to the Azure AI Studio Hub and click on the **Data** tab.
+1. Go to the Azure AI Studio Project and click on the **Data** tab.
 1. Click on the **+ New data** button to create a new data source.
 1. In the Add your data wizard, expand the drop-down menu to select **Upload files/folders**.
 1. Select the **Upload file** and then the *product.csv* file from your local path. 
@@ -27,7 +27,7 @@ Let's start by adding a new data source to your Azure AI Studio Hub.
 
 Next, you will create a new index in your Azure AI Search service to store the product data and make it searchable.
 
-1. Go to **Search** tab in the Azure AI Studio Hub.
+1. Go to **Indexes** tab in the Azure AI Studio Project.
 1. Click on the **+ New index** button.
 1. Change the default name of your index to **"products-catalog"**.
 1. Select **Data in Azure AI Studio** as the data source and then the data source you just uploaded.
