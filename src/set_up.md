@@ -11,7 +11,7 @@ For more information, see [https://docs.microsoft.com/en-us/azure/openai/overvie
 
 - You will need an IDE to build and test your first LLMs-based application. You can choose to work on your local [Visual Studio Code](https://code.visualstudio.com/) desktop app or run a [GitHub Codespace](https://github.com/features/codespaces) in the browser. You can click on the button below to open this repo in a GitHub Codespace.
 
- [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826281335&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
+ [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826287138&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
 > [!NOTE] 
 > OpenAI resources are amazing but can be EXPENSIVE!  Make sure you review the costs associated with the OpenAI resources that you are creating.
