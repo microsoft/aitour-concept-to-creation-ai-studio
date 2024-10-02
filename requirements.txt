@@ -1,8 +1,5 @@
 azure-search-documents==11.4.0
 python-dotenv==1.0.1
-promptflow.evals
-promptflow==1.11.0
-promptflow-tools==1.4.0
-promptflow[azure]==1.11.0
 prompty[azure]
 prompty[tracer]
+azure.ai.evaluation
