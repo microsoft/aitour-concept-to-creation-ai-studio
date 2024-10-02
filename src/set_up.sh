@@ -56,13 +56,6 @@ echo "ai_services_resource_id:  $ai_service_resource_id" >> connection.yml
 az ml connection create --file connection.yml --resource-group $ai_resource_name_resource_group_name --workspace-name  $ai_resource_name_hub_name > null
 rm connection.yml 
 
-# Security
-#echo "Disable storage SAS keys"
-#storage_resource_id=$(az ml workspace show --name $ai_resource_name_hub_name --resource-group $ai_resource_name_resource_group_name --query storage_account --output tsv)
-#storage_name=$(echo $storage_resource_id | awk -F'/' '{print $NF}') 
-#az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --allow-shared-key-access false   > null
-#az storage account update --name $storage_name --resource-group $ai_resource_name_resource_group_name --min-tls-version TLS1_2  
-
 az role assignment create --role "Storage Blob Data Contributor" --scope /subscriptions/$subscription_id/resourceGroups/$ai_resource_name_resource_group_name --assignee-principal-type User --assignee-object-id $user_id
 
 # Search service creation
@@ -100,34 +93,3 @@ echo "AZURE_SEARCH_KEY=$search_key" >> .env
 echo "AZURE_SUBSCRIPTION_ID=$subscription_id" >> .env
 echo "AZURE_RESOURCE_GROUP=$ai_resource_name_resource_group_name" >> .env
 echo "AZURE_AI_PROJECT_NAME=$ai_resource_project_name" >> .env
-
-# Search index creation
-#index_name="products-catalog"
-#index_schema='{
-#  "name": "'$index_name'",
-#  "fields": [
-#    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
-#    {"name": "name", "type": "Edm.String", "searchable": true},
-#    {"name": "price", "type": "Edm.Double", "filterable": true, "sortable": true},
-#    {"name": "category", "type": "Edm.String", "searchable": true},
-#    {"name": "brand", "type": "Edm.String", "searchable": true},
-#    {"name": "description", "type": "Edm.String", "searchable": true}
-#  ]
-#}'
-
-#echo "Creating search index: $index_name"
-
-#curl -X POST "$search_url/indexes?api-version=2020-06-30" \
-#     -H "Content-Type: application/json" \
-#     -H "api-key: $search_key" \
-#     -d "$index_schema"
-
-#$json_file="data/products.json"
-
-# Upload JSON data to the search index from the products.json file
-#data=$(jq -c '.[] | { "@search.action": "upload", id: .id, name: .name, price: .price, category: .category, brand: .brand, description: .description }' $json_file | jq -s '{ "value": . }')
-
-#curl -X POST "$search_url/indexes/$index_name/docs/index?api-version=2020-06-30" \
-#     -H "Content-Type: application/json" \
-#     -H "api-key: $search_key" \
-#     -d "$data"
