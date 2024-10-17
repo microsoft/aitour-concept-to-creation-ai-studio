@@ -1,4 +1,6 @@
 # From Concept to Creation with Azure AI Studio
+[![Azure AI Community Discord](
+https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-00001-leestott)
 
 This repo hosts the material for the Microsoft AI Tour session *From Concept to Creation in Azure AI Studio*.
 
