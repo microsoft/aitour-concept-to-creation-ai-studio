@@ -1,6 +1,6 @@
-# Demo 2 - Prompt Engineering Techniques in the Azure AI Studio Playground
+# Demo 2 - Prompt Engineering Techniques in the Azure AI Foundry Playground
 
-The goal of this demo is to experiment with prompt engineering techniques in the Playground of Azure AI Studio. Before starting, make sure you completed the [Setup](set_up.md) steps. Also, if you are not familiar with Azure AI Studio yet, we recommend you to go through the [Get Started with Azure AI Studio](demo1_get_started_with_Azure_AI_Studio.md) demo first.
+The goal of this demo is to experiment with prompt engineering techniques in the Playground of Azure AI Foundry. Before starting, make sure you completed the [Setup](set_up.md) steps. Also, if you are not familiar with Azure AI Foundry yet, we recommend you to go through the [Get Started with Azure AI Foundry](demo1_get_started.md) demo first.
 
 ## Text generation
 
@@ -96,8 +96,8 @@ The outcome should provide a basic layout for the landing page of Contoso Outdoo
 
 ## Prompt Catalog
 
-For this demo you used some prompts built from scratch. However, Azure AI Studio provides a [Prompt Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/prompt-catalog?WT.mc_id=academic-140829-cacaste) with a collection of pre-built prompts that you can use to perform several task. You can access the Prompt Catalog by clicking on the *Prompt Catalog* tab in the Azure AI Studio Hub.
+For this demo you used some prompts built from scratch. However, Azure AI Foundry provides a prompt catalog with a collection of pre-built prompts that you can use to perform several task. You can access the Prompt Catalog by clicking on the *Prompt samples* button in the top menu of the Chat Playground.
 
-Try to open one of the sample prompts. You'll see that each prompts has several components, such as system message, variables, and examples. You can use these prompts as a starting point to build your own and even test them in the Playground.
+Try to open one of the sample prompts. You'll see that each prompt has several components, such as system message, variables, and examples. You can use these prompts as a starting point to build your own and even test them in the Playground.
 
 ![Prompt Catalog](./media/prompt_catalog.png)

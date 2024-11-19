@@ -7,7 +7,7 @@
 - You will need an Azure account.  If you don't have an Azure account, you can create one for free [here](https://azure.microsoft.com/en-us/free/).
 
 - Make sure that you have capacity for the OpenAI resources you are creating in your Azure subscription.  Note that not all OpenAI resources are available in all regions, so make sure to check availability and choose a region that supports this demo, specifically the gpt-4o, gpt-4 and text-embedding-ada-002 models.
-For more information, see [https://docs.microsoft.com/en-us/azure/openai/overview](https://docs.microsoft.com/en-us/azure/openai/overview).
+For more information, see [https://learn.microsoft.com/azure/ai-services/openai/overview](https://learn.microsoft.com/azure/ai-services/openai/overview).
 
 - You will need an IDE to build and test your first LLMs-based application. You can choose to work on your local [Visual Studio Code](https://code.visualstudio.com/) desktop app or run a [GitHub Codespace](https://github.com/features/codespaces) in the browser. You can click on the button below to open this repo in a GitHub Codespace.
 
@@ -16,16 +16,16 @@ For more information, see [https://docs.microsoft.com/en-us/azure/openai/overvie
 > [!NOTE] 
 > OpenAI resources are amazing but can be EXPENSIVE!  Make sure you review the costs associated with the OpenAI resources that you are creating.
 
-## Option 1: Set up the demos using the Azure Portal and the Azure AI Studio UI
+## Option 1: Set up the demos using the Azure Portal and the Azure AI Foundry Portal
 
-Follow the steps below to set up the Azure AI Studio environment for this demo.
+Follow the steps below to set up the Azure AI Foundry environment for this demo.
 
-1. Navigate to [Azure AI Studio](ai.azure.com) and login with your Azure account. A hub provides a collaborative workspace to host your projects.
-1. In the *Management* section, go to *All hubs* and then *Create a new hub*
-1. In the configuration page, fill in the required fields. The recommended location for running this demo is **Sweden Central**, for the sake of models availability. Create a new Azure AI services to enable access to Azure OpenAI Service and an AI Search service to enable the search functionality.
+1. Navigate to [Azure AI Foundry](ai.azure.com) and login with your Azure account. 
+1. Click on *+ Create project* on the top right corner of the homepage to create a new project. A project is a resource within Azure AI Foundry that grants you access to most of the platform's features, such as the Playgrounds.
+1. In the *Create a project* configuration window, type a name for your new project, then click on *Create a new hub* to add a name for a new hub too. A hub provides a collaborative workspace to host your projects
+1. Next, click on *Customize* to set up additional configurations related to your new hub, such as subscription, resource group and location. The recommended location for running this demo is **Sweden Central**, for the sake of models availability. Create a new Azure AI services to enable access to Azure OpenAI Service and an AI Search service to enable the search functionality.
 ![Hub configuration](./media/hub_configuration.png)
-1. Once the hub is created, navigate to *All projects* and click on *+ New Project* to create a new project. Make sure you select the hub you just created. 
-1. In your newly created project, navigate to the *Deployments* page, under the *Components* section. Click on *+ Create deployment* to create a new deployment. For this demo you'll need 3 gpt instances: *gpt-4o*, *gpt-4* and *text-embedding-ada-002*. This is how your project's deployments section should look like:
+1. In your newly created project, navigate to the *Models + endpoints* page, under *My assets* section. Click on *+ Create deployment* to create a new deployment. For this demo you'll need 3 gpt instances: *gpt-4o*, *gpt-4* and *text-embedding-ada-002*. This is how your project's deployments section should look like:
 ![Deployments section](./media/deployments.png)
 At the end of this step, if you navigate to the [Azure Portal](portal.azure.com) your project resource group should look like this:
 ![Azure resource group](./media/azure_rg.png)
@@ -33,10 +33,10 @@ where the key vault and the storage account are created by default when you crea
 
 ## Option 2: Azure CLI Automation Script
 
-*Warning:* An .env file with hard-coded values for local demos and testing will be created in the src directory
-This file is used to store the environment variables for the project for demos and testing only
-Please do not share this file, or commit this file to the repository
-Delete this file when done with demos, or if you are not using it
+*Warning:* An .env file with hard-coded values for local demos and testing will be created in the src directory.
+This file is used to store the environment variables for the project for demos and testing only.
+Please do not share this file, or commit this file to the repository.
+Delete this file when done with demos, or if you are not using it.
 
 
 ### Azure CLI Prerequisites
