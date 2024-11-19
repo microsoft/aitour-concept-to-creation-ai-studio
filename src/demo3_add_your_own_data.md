@@ -12,14 +12,14 @@ If you prefer, you can also rely on a pre-built environment which has all the de
 
  [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&machine=basicLinux32gb&repo=826287138&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=UsEast)
 
-## Add your data to Azure AI Studio Hub
+## Add your data to Azure AI Foundry Hub
 
-In the [setup](./set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Studio hub. Now you will populate your Azure AI Search service with your business data.
+In the [setup](./set_up.md) section, you created an Azure AI Search service and connected it to your Azure AI Foundry hub. Now you will populate your Azure AI Search service with your business data.
 
-Let's start by adding a new data source to your Azure AI Studio Project.
+Let's start by adding a new data source to your Azure AI Foundry Project.
 
 1. Download the [Contoso products Catalog](./data/products) markdown files, a sample dataset that contains product information.
-1. Go to the Azure AI Studio Project and click on the **Data** tab.
+1. Go to the Azure AI Foundry Project and click on the **Data + Indexes** tab under **My Assets**.
 1. Click on the **+ New data** button to create a new data source.
 1. In the Add your data wizard, expand the drop-down menu to select **Upload files/folders**.
 1. Select the **Upload file** and then all the *product_info_X.md* files from your local path. 
@@ -27,10 +27,10 @@ Let's start by adding a new data source to your Azure AI Studio Project.
 
 Next, you will create a new index in your Azure AI Search service to store the product data and make it searchable.
 
-1. Go to **Indexes** tab in the Azure AI Studio Project.
+1. Move to the **Indexes** tab in the *Data + Indexes* page.
 1. Click on the **+ New index** button.
 1. Change the default name of your index to **"products-catalog"**.
-1. Select **Data in Azure AI Studio** as the data source and then the data source you just uploaded.
+1. Select **Data in Azure AI Foundry** as the data source and then the data source you just uploaded.
 1. In the **Index Settings** section, select the *AzureAISearch* connection you created in the setup phase
 1. In the **Search Setting** section, make sure that vectorization is enabled and select the default Azure OpenAI resource for your hub as *embedding* model.
 
@@ -42,7 +42,7 @@ Wait for the indexing process to be completed, which can take several minutes. T
 
 ## Explore your first gen AI solution
 
-Now that your index has been registered in your Azure AI Studio project and is ready to be used, you can explore and test your first LLMs-based solution to interact with your data.
+Now that your index has been registered in your Azure AI Foundry project and is ready to be used, you can explore and test your first LLMs-based solution to interact with your data.
 
 All the app source code is stored in the [web_designer_app](./web_designer_app) folder. It includes:
 - The **create_website_copy.prompty** file that defines the model configuration and the prompt specification. [Prompty](https://prompty.ai/docs) is an asset class and format to enhance prompt engineering, especially useful to build complex prompts made up of dynamic components (data sources, conversation history and more).
@@ -55,9 +55,8 @@ All the app source code is stored in the [web_designer_app](./web_designer_app) 
  >[!NOTE]
  >For the sake of this example we are using an *API Key authentication* method for both Azure OpenAI Service and Azure AI Search Service. For production scenarios, we do recommend using keyless connections as a security best practice. Learn how to configure *Microsoft Entra ID authentication*, by reading the following resources:
 >[How to configure Azure OpenAI Service with Microsoft Entra ID authentication](https://learn.microsoft.com/azure/ai-services/openai/how-to/managed-identity?WT.mc_id=academic-145965-cacaste)
->[How to configure Azure AI Search Service with Microsoft Entra ID authentication](https://learn.microsoft.com/azure/search/keyless-connections?WT.mc_id=academic-145965-cacaste)
 
-To execute your application, you need to specify your **environment variables**. Copy the [.env.sample](./src/.env.sample) into a new file named *.env* and fill it out with the details of the resources provisioned during the set-up. To find up your resources credentials navigate to [Azure AI Studio](ai.azure.com) and from the left-side menu select *All hubs*. Pick the Azure AI hub you created during the set-up process and in the overview tab expand the *Connected resources* pane, by clicking on *View All*. From there, you'll be able to see and extract the information needed:
+To execute your application, you need to specify your **environment variables**. Copy the [.env.sample](./src/.env.sample) into a new file named *.env* and fill it out with the details of the resources provisioned during the set-up. To find up your resources credentials, navigate to your project in Azure AI Foundry Portal and from the left-side menu select *Management center*. Then, in the project overview tab of the management center expand the *Connected resources* pane, by clicking on *View All*. From there, you'll be able to see and extract the information needed:
 ![Connected resources](./media/connected_resources_info.png)
 
 >[!NOTE]
@@ -72,7 +71,7 @@ To better visualize the results and also inspect intermediate steps, you can rel
 
 ![App output](./media/app_output.png)
 
-Differently from the results we got by interacting with the model in the Playground, you can see as this answer is grounded in the products catalog information you uploaded in your Azure AI Studio project. Your application used the user query to retrieve the product information relevant to the tents page and then used it to ground the final output.
+Differently from the results we got by interacting with the model in the Playground, you can see as this answer is grounded in the products catalog information you uploaded in your Azure AI Foundry project. Your application used the user query to retrieve the product information relevant to the tents page and then used it to ground the final output.
 
 > [!TIP]
 > If you face any issue in visualizing the Prompty traces UI, click the *Split Editor Right* button at the top right corner.
