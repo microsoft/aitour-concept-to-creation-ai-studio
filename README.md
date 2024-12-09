@@ -1,4 +1,4 @@
-# From Concept to Creation with Azure AI Foundry
+# Build AI Solutions with Azure AI Foundry
 [![Azure AI Community Discord](
 https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4?WT.mc_id=aiml-00001-leestott)
 
