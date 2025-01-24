@@ -1,7 +1,7 @@
 #!/bin/bash  
 
 prefix="BRK441"
-location="swedencentral"
+location="eastus"
 subscription_id=$(az account show --query id --output tsv)
 user_id=$(az ad signed-in-user show --query id --output tsv)
 
@@ -31,15 +31,15 @@ az cognitiveservices account create --kind AIServices --location $location --nam
 
 # Deploying GPT-4o in Azure AI Service
 echo "Deploying GPT-4o"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-05-13" --model-format "OpenAI" --sku-capacity "1" --sku-name "Standard" --capacity "20"
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-11-20" --model-format "OpenAI" --sku-capacity "1" --sku-name "GlobalStandard" --capacity "8"
 
 # Deploying GPT-4 in Azure AI Service
 echo "Deploying GPT-4"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "0613" --sku-capacity "1" --sku-name "Standard" --capacity "20"
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "turbo-2024-04-09" --sku-capacity "1" --sku-name "GlobalStandard" --capacity "8"
 
-# Deploying GPT-4 in Azure AI Service
-echo "Deploying Text-embedding-ada-002"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "text-embedding-ada-002" --model-name "text-embedding-ada-002" --model-format "OpenAI" --model-version "2" --sku-capacity "1" --sku-name "Standard" --capacity "20"
+# Deploying Text Embedding ADA 002 in Azure AI Service
+echo "Deploying text-embedding-ada-002"
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "text-embedding-ada-002" --model-name "text-embedding-ada-002" --model-format "OpenAI" --model-version "2" --sku-capacity "1" --sku-name "Standard" --capacity "120"
 
 # Adding connection to the AI Hub
 echo "Adding AI Service Connection to the HUB"
@@ -60,7 +60,9 @@ az role assignment create --role "Storage Blob Data Contributor" --scope /subscr
 
 # Search service creation
 tmp_name=$ai_resource_name"-aisearch"
+# This forces to lower case, which is required to create the search service. If this fails (e.g. on MacOS), you can use something like the commented line immediately below instead
 ai_resource_ai_search="${tmp_name,,}"
+# export ai_resource_ai_search="brk441-az-aisearch"
 az search service create --name $ai_resource_ai_search --resource-group $ai_resource_name_resource_group_name --sku basic --partition-count 1 --replica-count 1
 
 search_url="https://"$ai_resource_ai_search".search.windows.net"
