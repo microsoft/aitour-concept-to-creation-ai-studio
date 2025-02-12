@@ -22,7 +22,8 @@ code.
 | Demo Recordings           | [Demo 1 - Get started with Azure AI Foundry](https://aka.ms/AArxl37) | Recording of the Demo Live 1 with no audio| 
 | Demo Recordings           | [Demo 2 - Prompt engineering techniques in Azure AI Foundry](https://aka.ms/AArxl3e) | Recording of the Demo Live 2 with no audio| 
 | Demo Recordings           | [Demo 3 - Add your own data to your app](https://aka.ms/AArxdeq) | Recording of the Demo Live 3 with no audio| 
-| Demo Recordings           | [Demo 4 - Evaluating your prototype with Azure AI Foundry](https://aka.ms/AArxl3p) | Recording of the Demo Live 4 with no audio| 
+| Demo Recordings           | [Demo 4 - Evaluating your prototype with Azure AI Foundry](https://aka.ms/AArxl3p) | Recording of the Demo Live 4 with no audio|
+| Session delivery recording       | [Microsoft Reactor session](https://www.youtube.com/watch?v=y3B3gbqnDcE)| Session delivery recording|
 
 ## Get Started
 
