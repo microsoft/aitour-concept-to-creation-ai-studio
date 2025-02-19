@@ -6,7 +6,7 @@
 
 - You will need an Azure account.  If you don't have an Azure account, you can create one for free [here](https://azure.microsoft.com/en-us/free/).
 
-- Make sure that you have capacity for the OpenAI resources you are creating in your Azure subscription.  Note that not all OpenAI resources are available in all regions, so make sure to check availability and choose a region that supports this demo, specifically the gpt-4o, gpt-4 and text-embedding-ada-002 models.
+- Make sure that you have capacity for the OpenAI resources you are creating in your Azure subscription.  Note that not all OpenAI resources are available in all regions, so make sure to check availability and choose a region that supports this demo, specifically the gpt-4o, gpt-4 turbo and text-embedding-ada-002 models.
 For more information, see [https://learn.microsoft.com/azure/ai-services/openai/overview](https://learn.microsoft.com/azure/ai-services/openai/overview).
 
 - You will need an IDE to build and test your first LLMs-based application. You can choose to work on your local [Visual Studio Code](https://code.visualstudio.com/) desktop app or run a [GitHub Codespace](https://github.com/features/codespaces) in the browser. You can click on the button below to open this repo in a GitHub Codespace.
@@ -61,7 +61,7 @@ az extension add --name ml
 
 ### 1. Customize the location:
 
-Replace the `location`: with your preferred Azure region (Default: swedencentral).
+Replace the `location`: with your preferred Azure region (Default: eastus).
 
 ### 2. Run the Script
 
