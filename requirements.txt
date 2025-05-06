@@ -3,3 +3,4 @@ python-dotenv==1.0.1
 prompty[azure]
 prompty[tracer]
 azure.ai.evaluation
+promptflow-azure
