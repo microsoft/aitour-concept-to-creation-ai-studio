@@ -1,7 +1,7 @@
 #!/bin/bash  
 
 prefix="BRK441"
-location="eastus"
+location="eastus2" # Change this to your preferred location
 subscription_id=$(az account show --query id --output tsv)
 user_id=$(az ad signed-in-user show --query id --output tsv)
 
