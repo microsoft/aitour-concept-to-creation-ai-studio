@@ -1,7 +1,7 @@
 #!/bin/bash  
 
 prefix="BRK441"
-location="eastus"
+location="eastus2" # Change this to your preferred location
 subscription_id=$(az account show --query id --output tsv)
 user_id=$(az ad signed-in-user show --query id --output tsv)
 
@@ -31,11 +31,11 @@ az cognitiveservices account create --kind AIServices --location $location --nam
 
 # Deploying GPT-4o in Azure AI Service
 echo "Deploying GPT-4o"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-11-20" --model-format "OpenAI" --sku-capacity "1" --sku-name "GlobalStandard" --capacity "8"
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4o" --model-name "gpt-4o" --model-version "2024-11-20" --model-format "OpenAI" --sku-capacity "1" --sku-name "GlobalStandard" --capacity "120"
 
 # Deploying GPT-4 in Azure AI Service
 echo "Deploying GPT-4"
-az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "turbo-2024-04-09" --sku-capacity "1" --sku-name "GlobalStandard" --capacity "8"
+az cognitiveservices account deployment create --name $ai_resource_ai_service --resource-group $ai_resource_name_resource_group_name --deployment-name "gpt-4" --model-name "gpt-4" --model-format "OpenAI" --model-version "turbo-2024-04-09" --sku-capacity "1" --sku-name "GlobalStandard" --capacity "20"
 
 # Deploying Text Embedding ADA 002 in Azure AI Service
 echo "Deploying text-embedding-ada-002"
