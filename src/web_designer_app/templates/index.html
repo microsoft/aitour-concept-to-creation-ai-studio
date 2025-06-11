@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Copy Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            display: grid;
+            gap: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:disabled {
+            background-color: #cccccc;
+        }
+        .output-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .result-box {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            background-color: #fff;
+            min-height: 200px;
+        }
+        .error {
+            color: #dc3545;
+            padding: 10px;
+            background-color: #f8d7da;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .loading {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Website Copy Generator</h1>
+        
+        <div>
+            <textarea id="question" placeholder="Enter your request for website copy..."></textarea>
+            <button onclick="generateCopy()" id="generateBtn">Generate Copy</button>
+        </div>
+
+        <div class="output-container">
+            <div class="result-box">
+                <h3>Generated Copy</h3>
+                <div id="result"></div>
+            </div>
+            
+            <div class="result-box">
+                <h3>Context Used</h3>
+                <div id="context"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function generateCopy() {
+            const button = document.getElementById('generateBtn');
+            const resultDiv = document.getElementById('result');
+            const contextDiv = document.getElementById('context');
+            const question = document.getElementById('question').value.trim();
+
+            if (!question) {
+                resultDiv.innerHTML = '<div class="error">Please enter a request</div>';
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = 'Generating...';
+            resultDiv.innerHTML = '<div>Processing...</div>';
+            contextDiv.innerHTML = '';
+
+            try {
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await response.json();
+                
+                if (data.error) {
+                    resultDiv.innerHTML = `<div class="error">${data.error}</div>`;
+                    return;
+                }
+
+                resultDiv.textContent = data.answer;
+                contextDiv.textContent = data.context;
+
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Generate Copy';
+            }
+        }
+    </script>
+</body>
+</html>

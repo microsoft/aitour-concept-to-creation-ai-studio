@@ -20,7 +20,7 @@ For more information, see [https://learn.microsoft.com/azure/ai-services/openai/
 
 Follow the steps below to set up the Azure AI Foundry environment for this demo.
 
-1. Navigate to [Azure AI Foundry](ai.azure.com) and login with your Azure account. 
+1. Navigate to [Azure AI Foundry](https://ai.azure.com) and login with your Azure account. 
 1. Click on *+ Create project* on the top right corner of the homepage to create a new project. A project is a resource within Azure AI Foundry that grants you access to most of the platform's features, such as the Playgrounds.
 1. In the *Create a project* configuration window, type a name for your new project, then click on *Create a new hub* to add a name for a new hub too. A hub provides a collaborative workspace to host your projects
 1. Next, click on *Customize* to set up additional configurations related to your new hub, such as subscription, resource group and location. The recommended location for running this demo is **Sweden Central**, for the sake of models availability. Create a new Azure AI services to enable access to Azure OpenAI Service and an AI Search service to enable the search functionality.
